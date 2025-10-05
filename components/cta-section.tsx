@@ -3,6 +3,8 @@
 import { useLanguage } from '@/contexts/language-context'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, MessageCircle } from 'lucide-react'
+import Link from 'next/link'
+import { FaWhatsapp } from 'react-icons/fa'
 
 export default function CTASection() {
   const { t, isRTL } = useLanguage()
@@ -27,13 +29,19 @@ export default function CTASection() {
                 } group-hover:translate-x-1 transition-transform`}
               />
             </Button>
-            <Button
-              variant='outline'
-              className='border-slate-600 text-white hover:bg-slate-800 px-8 py-4 text-lg group bg-transparent'
-            >
-              <MessageCircle className={`w-5 h-5 ${isRTL ? 'ml-2' : 'mr-2'}`} />
-              {t('cta.freeConsultation')}
-            </Button>
+            <Link href='https://wa.me/218928666458'>
+              <Button
+                variant='outline'
+                className='border-slate-600 text-white hover:bg-slate-800 px-8 py-4.5 text-lg group bg-transparent cursor-pointer'
+              >
+                {t('cta.freeConsultation')}
+                <FaWhatsapp
+                  className={`w-5 h-5 text-green-500 ${
+                    isRTL ? 'mr-1' : 'ml-1'
+                  }`}
+                />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
