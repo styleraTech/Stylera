@@ -56,7 +56,7 @@ export default function AboutSection() {
           }`}
         >
           <h2 className='text-4xl md:text-5xl font-light text-white mb-8'>
-            <span className='font-medium instrument text-accent'>
+            <span className='font-medium ltr:instrument text-accent'>
               {t('about.title')}
             </span>
           </h2>
@@ -108,7 +108,7 @@ export default function AboutSection() {
           className={`mb-20 ${language === 'ar' ? 'text-right' : 'text-left'}`}
         >
           <h3 className='text-3xl font-light text-white mb-12 text-center'>
-            <span className='font-medium instrument text-accent'>
+            <span className='font-medium ltr:instrument text-accent'>
               {language === 'ar' ? 'قيمنا الأساسية' : 'Our Core Values'}
             </span>
           </h3>

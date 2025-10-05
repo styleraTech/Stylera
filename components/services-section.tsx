@@ -65,7 +65,7 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Content */}
-                <div className='text-start'>
+                <div className='text-start select-none'>
                   <h3 className='text-xl font-semibold text-white mb-4 group-hover:text-accent transition-colors duration-300'>
                     {t(service.titleKey)}
                   </h3>
@@ -74,7 +74,7 @@ export default function ServicesSection() {
                   </p>
 
                   {/* Learn More Link */}
-                  <button className='flex items-center gap-2 text-accent hover:text-accent/80 transition-colors duration-300 group-hover:gap-3'>
+                  {/* <button className='flex items-center gap-2 text-accent hover:text-accent/80 transition-colors duration-300 group-hover:gap-3'>
                     <span className='text-sm font-medium'>
                       {t('services.learnMore')}
                     </span>
@@ -82,7 +82,7 @@ export default function ServicesSection() {
                       size={16}
                       className='transition-transform duration-300'
                     />
-                  </button>
+                  </button> */}
                 </div>
 
                 {/* Hover Overlay */}
@@ -103,7 +103,10 @@ export default function ServicesSection() {
             </p>
             <button className='group px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-base transition-all duration-300 hover:bg-primary/90 cursor-pointer flex items-center gap-3 hover:gap-4 mx-auto'>
               {t('services.cta.button')}
-              <ArrowRight size={20} className='transition-all duration-300' />
+              <ArrowRight
+                size={20}
+                className='transition-all duration-300 rtl:rotate-180'
+              />
             </button>
           </div>
         </div>
