@@ -47,6 +47,12 @@ const contactInfo = [
     value: 'Tripoli, Libya',
     gradient: 'from-green-500 to-emerald-500',
   },
+  {
+    icon: FaWhatsapp,
+    title: 'WhatsApp',
+    value: '+218 92 8666 458',
+    gradient: 'from-green-500 to-emerald-500',
+  },
 ]
 
 const faqs = [
@@ -153,7 +159,7 @@ export default function ContactPage() {
         {/* Contact Information */}
         <section className='py-20 px-4'>
           <div className='max-w-6xl mx-auto'>
-            <div className='grid md:grid-cols-3 gap-8 mb-16'>
+            <div className='grid md:grid-cols-4 cursor-pointer gap-8 mb-16'>
               {contactInfo.map((info, index) => {
                 const Icon = info.icon
 
