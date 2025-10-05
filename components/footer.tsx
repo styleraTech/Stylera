@@ -98,8 +98,10 @@ export default function Footer() {
             <h4 className='text-white font-semibold mb-4'>
               {language === 'ar' ? 'تواصل معنا' : 'Contact Info'}
             </h4>
-            <ul className='space-y-3'>
-              {/* ✅ WhatsApp Link */}
+            <ul
+              className={`space-y-3 flex flex-col justify-center items-start`}
+            >
+              {/*  WhatsApp Link */}
               <li
                 className={`flex items-center gap-3 text-white/70 ${
                   language === 'ar' ? 'flex-row-reverse' : ''
@@ -116,7 +118,7 @@ export default function Footer() {
                 </a>
               </li>
 
-              {/* ✅ Email Link */}
+              {/*  Email Link */}
               <li
                 className={`flex items-center gap-3 text-white/70 ${
                   language === 'ar' ? 'flex-row-reverse' : ''
