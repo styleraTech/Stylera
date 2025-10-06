@@ -1,52 +1,46 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Figtree } from "next/font/google"
-import { GeistMono } from "geist/font/mono"
-import { Instrument_Serif } from "next/font/google"
-import { LanguageProvider } from "@/contexts/language-context"
-import "./globals.css"
+import type React from 'react'
+import type { Metadata } from 'next'
+import { Figtree, Cairo } from 'next/font/google'
+import { GeistMono } from 'geist/font/mono'
+import { LanguageProvider } from '@/contexts/language-context'
+import FontDirectionWrapper from '@/contexts/FontWrapper'
+import './globals.css'
 
+// English font
 const figtree = Figtree({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-figtree",
-  display: "swap",
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-english',
+  display: 'swap',
 })
 
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
-  variable: "--font-instrument-serif",
-  display: "swap",
+// Arabic font
+const cairo = Cairo({
+  subsets: ['arabic', 'latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-arabic',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: "StyleraTech - Software Development Excellence",
+  title: 'StyleraTech | Software Solutions',
   description:
-    "StyleraTech is a software development company specializing in modern web technologies and advanced IT solutions.",
-  generator: "v0.app",
+    'StyleraTech is a software development company specializing in modern web technologies and advanced IT solutions.',
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="en">
-      <head>
-        <style>{`
-html {
-  font-family: ${figtree.style.fontFamily};
-  --font-sans: ${figtree.variable};
-  --font-mono: ${GeistMono.variable};
-  --font-instrument-serif: ${instrumentSerif.variable};
-}
-        `}</style>
-      </head>
-      <body className={`${figtree.variable} ${instrumentSerif.variable}`}>
-        <LanguageProvider>{children}</LanguageProvider>
+    <html lang='en'>
+      <body
+        className={`${figtree.variable} ${cairo.variable} ${GeistMono.variable}`}
+      >
+        <LanguageProvider>
+          <FontDirectionWrapper>{children}</FontDirectionWrapper>
+        </LanguageProvider>
       </body>
     </html>
   )

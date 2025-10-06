@@ -1,178 +1,203 @@
-"use client"
+'use client'
 
-import type React from "react"
+import type React from 'react'
 
-import Navigation from "@/components/navigation"
-import Footer from "@/components/footer"
-import ShaderBackground from "@/components/shader-background"
-import { useLanguage } from "@/contexts/language-context"
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Phone, Mail, MapPin, Clock, MessageCircle, ArrowRight, HelpCircle } from "lucide-react"
-import { useState } from "react"
-
-const contactInfo = [
-  {
-    icon: Phone,
-    title: "Phone",
-    value: "+966 50 123 4567",
-    gradient: "from-blue-500 to-cyan-500",
-  },
-  {
-    icon: Mail,
-    title: "Email",
-    value: "info@styleratech.com",
-    gradient: "from-purple-500 to-pink-500",
-  },
-  {
-    icon: MapPin,
-    title: "Location",
-    value: "Riyadh, Saudi Arabia",
-    gradient: "from-green-500 to-emerald-500",
-  },
-]
-
-const faqs = [
-  {
-    question: "What services do you offer?",
-    answer:
-      "We offer comprehensive technology solutions including web development, mobile applications, AI solutions, and UI/UX design. Our team specializes in modern technologies and can handle projects of any scale.",
-  },
-  {
-    question: "How long does a typical project take?",
-    answer:
-      "Project timelines vary depending on complexity and scope. A simple website might take 2-4 weeks, while complex applications can take 3-6 months. We provide detailed timelines during our initial consultation.",
-  },
-  {
-    question: "Do you provide ongoing support and maintenance?",
-    answer:
-      "Yes, we offer comprehensive support and maintenance packages to ensure your application continues to perform optimally. This includes updates, security patches, and technical support.",
-  },
-  {
-    question: "What is your development process?",
-    answer:
-      "We follow an agile development methodology with regular client communication, iterative development, and thorough testing. Our process includes discovery, design, development, testing, and deployment phases.",
-  },
-  {
-    question: "Can you work with existing systems?",
-    answer:
-      "We have extensive experience integrating with existing systems and can help modernize legacy applications or build new features that work seamlessly with your current infrastructure.",
-  },
-  {
-    question: "What technologies do you specialize in?",
-    answer:
-      "We specialize in modern web technologies including React, Next.js, Node.js, Python, mobile development with React Native and Flutter, and AI/ML technologies including TensorFlow and various cloud platforms.",
-  },
-]
+import Navigation from '@/components/navigation'
+import Footer from '@/components/footer'
+import ShaderBackground from '@/components/shader-background'
+import { useLanguage } from '@/contexts/language-context'
+import { Card } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  ArrowRight,
+  HelpCircle,
+} from 'lucide-react'
+import { useState } from 'react'
+import { FaWhatsapp } from 'react-icons/fa'
 
 export default function ContactPage() {
-  const { t, isRTL } = useLanguage()
+  const { t } = useLanguage()
+
+  const contactInfo = [
+    {
+      icon: Phone,
+      title: t('contactPage.phone'),
+      value: '+218 92 8666 458',
+      gradient: 'from-blue-500 to-cyan-500',
+      href: 'tel:+218928666458',
+      type: 'phone',
+    },
+    {
+      icon: Mail,
+      title: t('contactPage.email'),
+      value: 'contact@ebtkar.tech',
+      gradient: 'from-purple-500 to-pink-500',
+      href: 'mailto:contact@ebtkar.tech',
+      type: 'email',
+    },
+    {
+      icon: MapPin,
+      title: t('contactPage.location'),
+      value: 'Tripoli, Libya',
+      gradient: 'from-green-500 to-emerald-500',
+      href: 'https://www.google.com/maps/search/?api=1&query=Tripoli,Libya',
+      type: 'location',
+    },
+    {
+      icon: FaWhatsapp,
+      title: t('contactPage.whatsapp'),
+      value: '+218 92 8666 458',
+      gradient: 'from-green-500 to-emerald-500',
+      href: 'https://wa.me/218928666458',
+      type: 'whatsapp',
+    },
+  ]
+
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    projectType: "",
-    budget: "",
-    message: "",
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    projectType: '',
+    budget: '',
+    message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 2000))
-
-    console.log("Form submitted:", formData)
+    console.log('Form submitted:', formData)
     setIsSubmitting(false)
-
-    // Reset form
     setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      projectType: "",
-      budget: "",
-      message: "",
+      name: '',
+      email: '',
+      phone: '',
+      company: '',
+      projectType: '',
+      budget: '',
+      message: '',
     })
   }
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     })
   }
 
-  return (
-    <div className="relative">
-      <ShaderBackground>
-        <Navigation />
+  const handleContactClick = (href: string, type: string) => {
+    window.open(
+      href,
+      type === 'whatsapp' || type === 'location' ? '_blank' : '_self'
+    )
+  }
 
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">Contact Us</h1>
-            <p className="text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto">
-              We are here to help you transform your ideas into digital reality. Contact us today and get a free
-              consultation
-            </p>
-          </div>
-        </section>
+  const faqs = t('contactPage.faq.questions')
+
+  return (
+    <div className='relative'>
+      <ShaderBackground>
+        <div className='relative z-10'>
+          <Navigation />
+
+          {/* Hero Section */}
+          <section className='pt-32 pb-20 px-4'>
+            <div className='max-w-4xl mx-auto text-center'>
+              <h1 className='text-5xl md:text-7xl font-bold text-accent mb-6 leading-tight'>
+                {t('contactPage.title')}
+              </h1>
+              <p className='text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto'>
+                {t('contactPage.subtitle')}
+              </p>
+            </div>
+          </section>
+        </div>
       </ShaderBackground>
 
-      <div className="bg-background">
+      <div className='bg-background'>
         {/* Contact Information */}
-        <section className="py-20 px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <section className='py-20 px-4'>
+          <div className='max-w-6xl mx-auto'>
+            <div className='grid md:grid-cols-4 gap-8 mb-16'>
               {contactInfo.map((info, index) => {
                 const Icon = info.icon
-
                 return (
                   <Card
                     key={index}
-                    className="bg-slate-800/50 border-slate-700 p-8 text-center hover:bg-slate-700/50 transition-all duration-300 group"
+                    onClick={() => handleContactClick(info.href, info.type)}
+                    className='bg-slate-800/50 border-slate-700 p-8 text-center hover:bg-slate-700/50 transition-all duration-300 group cursor-pointer transform hover:scale-105'
                   >
                     <div
                       className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${info.gradient} flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}
                     >
-                      <Icon className="w-8 h-8 text-white" />
+                      <Icon className='w-8 h-8 text-white' />
                     </div>
 
-                    <h3 className="text-xl font-bold text-white mb-3">{info.title}</h3>
-                    <p className="text-slate-300 text-lg">{info.value}</p>
+                    <h3 className='text-xl font-bold text-white mb-3'>
+                      {info.title}
+                    </h3>
+                    <p
+                      className='text-slate-300 text-lg group-hover:text-blue-400 transition-colors'
+                      dir='ltr'
+                    >
+                      {info.value}
+                    </p>
                   </Card>
                 )
               })}
             </div>
 
             {/* Business Hours */}
-            <Card className="bg-slate-800/50 border-slate-700 p-8 mb-16">
-              <div className="flex items-center mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center mr-6">
-                  <Clock className="w-8 h-8 text-white" />
+            <Card className='bg-slate-800/50 border-slate-700 p-8 mb-16'>
+              <div className='flex items-center mb-6'>
+                <div className='w-16 h-16 rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center me-6'>
+                  <Clock className='w-8 h-8 text-white' />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Business Hours</h3>
-                  <p className="text-slate-300">We're available during these hours</p>
+                  <h3 className='text-2xl font-bold text-white mb-2'>
+                    {t('contactPage.businessHours.title')}
+                  </h3>
+                  <p className='text-slate-300'>
+                    {t('contactPage.businessHours.subtitle')}
+                  </p>
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className='grid md:grid-cols-2 gap-6'>
                 <div>
-                  <h4 className="text-white font-semibold mb-2">Weekdays</h4>
-                  <p className="text-slate-300">Sunday - Thursday: 9:00 AM - 6:00 PM</p>
+                  <h4 className='text-white font-semibold mb-2'>
+                    {t('contactPage.businessHours.weekdays')}
+                  </h4>
+                  <p className='text-slate-300'>
+                    {t('contactPage.businessHours.weekdaysTime')}
+                  </p>
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-2">Weekend</h4>
-                  <p className="text-slate-300">Friday - Saturday: Closed</p>
+                  <h4 className='text-white font-semibold mb-2'>
+                    {t('contactPage.businessHours.weekend')}
+                  </h4>
+                  <p className='text-slate-300'>
+                    {t('contactPage.businessHours.weekendTime')}
+                  </p>
                 </div>
               </div>
             </Card>
@@ -180,54 +205,92 @@ export default function ContactPage() {
         </section>
 
         {/* Location Section */}
-        <section className="py-20 px-4 bg-slate-900/50">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Location</h2>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-                Visit us at our office in the heart of Riyadh
+        <section className='py-20 px-4 bg-slate-900/50'>
+          <div className='max-w-6xl mx-auto'>
+            <div className='text-center mb-16'>
+              <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
+                {t('contactPage.locationSection.title')}
+              </h2>
+              <p className='text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed'>
+                {t('contactPage.locationSection.subtitle')}
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className='grid lg:grid-cols-2 gap-12 items-center'>
               <div>
-                <Card className="bg-slate-800/50 border-slate-700 p-8">
-                  <h3 className="text-2xl font-bold text-white mb-6">StyleraTech Office</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-start">
-                      <MapPin className="w-6 h-6 text-blue-400 mr-3 mt-1 flex-shrink-0" />
+                <Card className='bg-slate-800/50 border-slate-700 p-8'>
+                  <h3 className='text-2xl font-bold text-white mb-6'>
+                    {t('contactPage.locationSection.officeTitle')}
+                  </h3>
+                  <div className='space-y-4'>
+                    <a
+                      href='https://www.google.com/maps/search/?api=1&query=Tripoli,Libya'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='flex items-start hover:bg-slate-700/50 p-3 rounded-lg transition-colors'
+                    >
+                      <MapPin className='w-6 h-6 text-blue-400 me-3 mt-1 flex-shrink-0' />
                       <div>
-                        <p className="text-white font-semibold">Address</p>
-                        <p className="text-slate-300">
-                          King Fahd Road, Al Olaya District
-                          <br />
-                          Riyadh 12211, Saudi Arabia
+                        <p className='text-white font-semibold'>
+                          {t('contactPage.locationSection.address')}
+                        </p>
+                        <p className='text-slate-300 hover:text-blue-400 transition-colors'>
+                          Tripoli, Libya
                         </p>
                       </div>
-                    </div>
-                    <div className="flex items-start">
-                      <Phone className="w-6 h-6 text-green-400 mr-3 mt-1 flex-shrink-0" />
+                    </a>
+                    <a
+                      href='tel:+218928666458'
+                      className='flex items-start hover:bg-slate-700/50 p-3 rounded-lg transition-colors'
+                    >
+                      <Phone className='w-6 h-6 text-green-400 me-3 mt-1 flex-shrink-0' />
                       <div>
-                        <p className="text-white font-semibold">Phone</p>
-                        <p className="text-slate-300">+966 50 123 4567</p>
+                        <p className='text-white font-semibold'>
+                          {t('contactPage.phone')}
+                        </p>
+                        <p
+                          className='text-slate-300 hover:text-green-400 transition-colors'
+                          dir='ltr'
+                        >
+                          +218 92 8666 458
+                        </p>
                       </div>
-                    </div>
-                    <div className="flex items-start">
-                      <Mail className="w-6 h-6 text-purple-400 mr-3 mt-1 flex-shrink-0" />
+                    </a>
+                    <a
+                      href='mailto:contact@ebtkar.tech'
+                      className='flex items-start hover:bg-slate-700/50 p-3 rounded-lg transition-colors'
+                    >
+                      <Mail className='w-6 h-6 text-purple-400 me-3 mt-1 flex-shrink-0' />
                       <div>
-                        <p className="text-white font-semibold">Email</p>
-                        <p className="text-slate-300">info@styleratech.com</p>
+                        <p className='text-white font-semibold'>
+                          {t('contactPage.email')}
+                        </p>
+                        <p className='text-slate-300 hover:text-purple-400 transition-colors'>
+                          contact@ebtkar.tech
+                        </p>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </Card>
               </div>
 
-              <div className="aspect-video bg-slate-800 rounded-2xl border border-slate-700 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-16 h-16 text-slate-400 mx-auto mb-4" />
-                  <p className="text-slate-400">Interactive Map</p>
-                  <p className="text-slate-500 text-sm">Map integration would go here</p>
+              <div
+                onClick={() =>
+                  window.open(
+                    'https://www.google.com/maps/search/?api=1&query=Tripoli,Libya',
+                    '_blank'
+                  )
+                }
+                className='aspect-video bg-slate-800 rounded-2xl border border-slate-700 flex items-center justify-center cursor-pointer hover:bg-slate-700 transition-colors group'
+              >
+                <div className='text-center'>
+                  <MapPin className='w-16 h-16 text-slate-400 mx-auto mb-4 group-hover:text-blue-400 transition-colors' />
+                  <p className='text-slate-400 group-hover:text-blue-400 transition-colors'>
+                    {t('contactPage.locationSection.mapPlaceholder')}
+                  </p>
+                  <p className='text-slate-500 text-sm'>
+                    {t('contactPage.locationSection.mapSubtext')}
+                  </p>
                 </div>
               </div>
             </div>
@@ -235,167 +298,213 @@ export default function ContactPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center mx-auto mb-6">
-                <HelpCircle className="w-8 h-8 text-white" />
+        <section className='py-20 px-4'>
+          <div className='max-w-4xl mx-auto'>
+            <div className='text-center mb-16'>
+              <div className='w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center mx-auto mb-6'>
+                <HelpCircle className='w-8 h-8 text-white' />
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Frequently Asked Questions</h2>
-              <p className="text-xl text-slate-300 leading-relaxed">
-                Find answers to common questions about our services and process
+              <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
+                {t('contactPage.faq.title')}
+              </h2>
+              <p className='text-xl text-slate-300 leading-relaxed'>
+                {t('contactPage.faq.subtitle')}
               </p>
             </div>
 
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
+            <Accordion type='single' collapsible className='space-y-4'>
+              {faqs.map((faq: any, index: number) => (
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="bg-slate-800/50 border-slate-700 rounded-lg px-6"
+                  className='bg-slate-800/50 border-slate-700 rounded-lg px-6'
                 >
-                  <AccordionTrigger className="text-white hover:text-blue-400 text-left">
+                  <AccordionTrigger className='text-white hover:text-blue-400 text-left'>
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-slate-300 leading-relaxed">{faq.answer}</AccordionContent>
+                  <AccordionContent className='text-slate-300 leading-relaxed'>
+                    {faq.answer}
+                  </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
 
-            <div className="text-center mt-12">
-              <Card className="bg-slate-800/50 border-slate-700 p-8">
-                <h3 className="text-2xl font-bold text-white mb-4">Didn't find an answer to your question?</h3>
-                <p className="text-slate-300 mb-6">Contact us directly and we will answer all your inquiries</p>
-                <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3">
-                  <MessageCircle className={`w-5 h-5 ${isRTL ? "ml-2" : "mr-2"}`} />
-                  Contact Support
-                </Button>
+            <div className='text-center mt-12'>
+              <Card className='bg-slate-800/50 border-slate-700 p-8'>
+                <h3 className='text-2xl font-bold text-white mb-4'>
+                  {t('contactPage.faq.cta.title')}
+                </h3>
+                <p className='text-slate-300 mb-6'>
+                  {t('contactPage.faq.cta.subtitle')}
+                </p>
+
+                <div className='flex flex-col sm:flex-row justify-center gap-4'>
+                  <Button
+                    asChild
+                    className='bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-6 flex items-center justify-center'
+                  >
+                    <a
+                      href='https://wa.me/218928666458'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='flex items-center'
+                    >
+                      <FaWhatsapp className='w-5 h-5 me-2' />
+                      {t('contactPage.faq.cta.whatsappButton')}
+                    </a>
+                  </Button>
+
+                  <Button
+                    asChild
+                    className='bg-slate-800 hover:bg-slate-700 border text-white text-lg px-8 py-6 flex items-center justify-center'
+                  >
+                    <a
+                      href='mailto:contact@ebtkar.tech'
+                      className='flex items-center'
+                    >
+                      <Mail className='w-5 h-5 me-2' />
+                      {t('contactPage.faq.cta.emailButton')}
+                    </a>
+                  </Button>
+                </div>
               </Card>
             </div>
           </div>
         </section>
 
         {/* Contact Form Section */}
-        <section className="py-20 px-4 bg-slate-900/50">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Start Your Project With Us</h2>
-              <p className="text-xl text-slate-300 leading-relaxed">
-                Fill out the form below and we will contact you within 24 hours
+        <section className='py-20 px-4 bg-slate-900/50'>
+          <div className='max-w-4xl mx-auto'>
+            <div className='text-center mb-16'>
+              <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
+                {t('contactPage.form.title')}
+              </h2>
+              <p className='text-xl text-slate-300 leading-relaxed'>
+                {t('contactPage.form.subtitle')}
               </p>
             </div>
 
-            <Card className="bg-slate-800/50 border-slate-700 p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+            <Card className='bg-slate-800/50 border-slate-700 p-8'>
+              <form onSubmit={handleSubmit} className='space-y-6'>
+                <div className='grid md:grid-cols-2 gap-6'>
                   <div>
-                    <label className="block text-white font-semibold mb-2">Name *</label>
+                    <label className='block text-white font-semibold mb-2'>
+                      {t('contactPage.form.name')}{' '}
+                      {t('contactPage.form.required')}
+                    </label>
                     <Input
-                      name="name"
+                      name='name'
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="bg-slate-700 border-slate-600 text-white"
-                      placeholder="Your full name"
+                      className='bg-slate-700 border-slate-600 text-white'
+                      placeholder={t('contactPage.form.name')}
                     />
                   </div>
                   <div>
-                    <label className="block text-white font-semibold mb-2">Email *</label>
+                    <label className='block text-white font-semibold mb-2'>
+                      {t('contactPage.form.email')}{' '}
+                      {t('contactPage.form.required')}
+                    </label>
                     <Input
-                      name="email"
-                      type="email"
+                      name='email'
+                      type='email'
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="bg-slate-700 border-slate-600 text-white"
-                      placeholder="your@email.com"
+                      className='bg-slate-700 border-slate-600 text-white'
+                      placeholder='your@email.com'
                     />
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className='grid md:grid-cols-2 gap-6'>
                   <div>
-                    <label className="block text-white font-semibold mb-2">Phone</label>
+                    <label className='block text-white font-semibold mb-2'>
+                      {t('contactPage.form.phone')}
+                    </label>
                     <Input
-                      name="phone"
+                      name='phone'
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="bg-slate-700 border-slate-600 text-white"
-                      placeholder="+966 50 123 4567"
+                      className='bg-slate-700 border-slate-600 text-white'
+                      placeholder='+218 92 123 4567'
                     />
                   </div>
                   <div>
-                    <label className="block text-white font-semibold mb-2">Company</label>
+                    <label className='block text-white font-semibold mb-2'>
+                      {t('contactPage.form.company')}
+                    </label>
                     <Input
-                      name="company"
+                      name='company'
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="bg-slate-700 border-slate-600 text-white"
-                      placeholder="Your company name"
+                      className='bg-slate-700 border-slate-600 text-white'
+                      placeholder={t('contactPage.form.company')}
                     />
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className='grid md:grid-cols-2 gap-6'>
                   <div>
-                    <label className="block text-white font-semibold mb-2">Project Type</label>
+                    <label className='block text-white font-semibold mb-2'>
+                      {t('contactPage.form.projectType')}
+                    </label>
                     <select
-                      name="projectType"
+                      name='projectType'
                       value={formData.projectType}
                       onChange={handleInputChange}
-                      className="w-full p-3 bg-slate-700 border border-slate-600 text-white rounded-md"
+                      className='w-full p-3 bg-slate-700 border border-slate-600 text-white rounded-md'
                     >
-                      <option value="">Select project type</option>
-                      <option value="web">Web Development</option>
-                      <option value="mobile">Mobile App</option>
-                      <option value="ai">AI Solution</option>
-                      <option value="design">UI/UX Design</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-white font-semibold mb-2">Budget Range</label>
-                    <select
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleInputChange}
-                      className="w-full p-3 bg-slate-700 border border-slate-600 text-white rounded-md"
-                    >
-                      <option value="">Select budget range</option>
-                      <option value="5k-10k">$5,000 - $10,000</option>
-                      <option value="10k-25k">$10,000 - $25,000</option>
-                      <option value="25k-50k">$25,000 - $50,000</option>
-                      <option value="50k+">$50,000+</option>
+                      <option value=''>
+                        {t('contactPage.form.projectTypeOptions.placeholder')}
+                      </option>
+                      <option value='web'>
+                        {t('contactPage.form.projectTypeOptions.web')}
+                      </option>
+                      <option value='mobile'>
+                        {t('contactPage.form.projectTypeOptions.mobile')}
+                      </option>
+                      <option value='ai'>
+                        {t('contactPage.form.projectTypeOptions.ai')}
+                      </option>
+                      <option value='design'>
+                        {t('contactPage.form.projectTypeOptions.design')}
+                      </option>
+                      <option value='other'>
+                        {t('contactPage.form.projectTypeOptions.other')}
+                      </option>
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-white font-semibold mb-2">Project Description *</label>
+                  <label className='block text-white font-semibold mb-2'>
+                    {t('contactPage.form.message')}{' '}
+                    {t('contactPage.form.required')}
+                  </label>
                   <Textarea
-                    name="message"
+                    name='message'
                     value={formData.message}
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="bg-slate-700 border-slate-600 text-white"
-                    placeholder="Tell us about your project, goals, and any specific requirements..."
+                    className='bg-slate-700 border-slate-600 text-white'
+                    placeholder={t('contactPage.form.messagePlaceholder')}
                   />
                 </div>
 
                 <Button
-                  type="submit"
+                  type='submit'
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 text-lg group"
+                  className='w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 text-lg group'
                 >
                   {isSubmitting ? (
-                    "Sending..."
+                    t('contactPage.form.sending')
                   ) : (
                     <>
-                      Send Message
-                      <ArrowRight
-                        className={`w-5 h-5 ${isRTL ? "mr-2 rotate-180" : "ml-2"} group-hover:translate-x-1 transition-transform`}
-                      />
+                      {t('contactPage.form.submit')}
+                      <ArrowRight className='w-5 h-5 ms-2 group-hover:translate-x-1 transition-transform' />
                     </>
                   )}
                 </Button>

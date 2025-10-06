@@ -65,7 +65,7 @@ export default function TestimonialsSection() {
                 <img
                   src={`/placeholder.svg?height=60&width=60&query=professional business person portrait`}
                   alt={t(`testimonials.items.${index}.name`)}
-                  className='w-12 h-12 rounded-full object-cover mr-4'
+                  className='w-12 h-12 rounded-full object-cover me-4'
                 />
                 <div>
                   <div className='text-white font-semibold'>

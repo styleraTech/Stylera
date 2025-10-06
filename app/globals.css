@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -38,8 +38,8 @@
   --sidebar-accent-foreground: #f8fafc; /* Light text on sidebar accent */
   --sidebar-border: #334155; /* Subtle sidebar borders */
   --sidebar-ring: #3b82f6; /* Blue for sidebar focus */
-  --font-instrument-serif: "Instrument Serif", serif;
-  --font-figtree: "Figtree", sans-serif;
+  --font-instrument-serif: 'Instrument Serif', serif;
+  --font-figtree: 'Figtree', sans-serif;
 }
 
 .dark {
@@ -76,8 +76,8 @@
   --sidebar-accent-foreground: #f8fafc;
   --sidebar-border: #334155;
   --sidebar-ring: #3b82f6;
-  --font-instrument-serif: "Instrument Serif", serif;
-  --font-figtree: "Figtree", sans-serif;
+  --font-instrument-serif: 'Instrument Serif', serif;
+  --font-figtree: 'Figtree', sans-serif;
 }
 
 @theme inline {
@@ -137,28 +137,49 @@
 }
 
 /* Added RTL support styles */
-[dir="rtl"] {
+[dir='rtl'] {
   text-align: right;
 }
 
-[dir="rtl"] .rtl\:text-right {
+[dir='rtl'] .rtl\:text-right {
   text-align: right;
 }
 
-[dir="rtl"] .rtl\:text-left {
+[dir='rtl'] .rtl\:text-left {
   text-align: left;
 }
 
-[dir="rtl"] .rtl\:flex-row-reverse {
+[dir='rtl'] .rtl\:flex-row-reverse {
   flex-direction: row-reverse;
 }
 
-[dir="rtl"] .rtl\:ml-auto {
+[dir='rtl'] .rtl\:ml-auto {
   margin-left: auto;
   margin-right: 0;
 }
 
-[dir="rtl"] .rtl\:mr-auto {
+[dir='rtl'] .rtl\:mr-auto {
   margin-right: auto;
   margin-left: 0;
+}
+html {
+  --font-english: var(--font-english);
+  --font-arabic: var(--font-arabic);
+  --font-mono: var(--font-mono);
+  font-family: var(--font-english), sans-serif;
+}
+
+/* English font applied by default */
+.font-english {
+  font-family: var(--font-english), sans-serif;
+}
+
+/* Arabic font */
+.font-arabic {
+  font-family: var(--font-arabic), sans-serif;
+}
+
+/* Optional: monospace font for code or dev areas */
+.font-mono {
+  font-family: var(--font-mono), monospace;
 }
