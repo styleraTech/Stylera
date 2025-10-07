@@ -26,7 +26,7 @@ const translations = {
     hero: {
       badge: '✨ Modern Web Technologies',
       title: 'StyleraTech',
-      subtitle: 'Software Development Excellence',
+      subtitle: 'For Software Services',
       description:
         'StyleraTech is a software development company specializing in modern web technologies and advanced IT solutions. We help businesses achieve their digital goals.',
       cta: {
@@ -263,7 +263,7 @@ const translations = {
         ],
       },
 
-      // ✅ NEW: How We Work section
+      // How We Work section
       howWeWorkTitle: 'How We Work',
       howWeWorkSubtitle:
         'We follow a clear and proven methodology to ensure we deliver the best results.',
@@ -290,7 +290,7 @@ const translations = {
         },
       ],
 
-      // ✅ NEW: CTA Section
+      //  CTA Section
       ctaTitle: 'Start Your Project Today',
       ctaSubtitle:
         'Contact us now for a free consultation and a custom quote for your project.',
@@ -427,7 +427,7 @@ const translations = {
     hero: {
       badge: '✨ تقنيات الويب الحديثة',
       title: 'ستايليرا تك',
-      subtitle: 'التميز في تطوير البرمجيات',
+      subtitle: 'للخدمات البرمجية',
       description:
         'شركة متخصصة في تطوير البرمجيات والحلول التقنية المتقدمة. نساعد الشركات على تحقيق أهدافها الرقمية.',
       cta: {

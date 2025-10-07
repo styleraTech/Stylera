@@ -38,8 +38,8 @@
   --sidebar-accent-foreground: #f8fafc; /* Light text on sidebar accent */
   --sidebar-border: #334155; /* Subtle sidebar borders */
   --sidebar-ring: #3b82f6; /* Blue for sidebar focus */
-  --font-instrument-serif: 'Instrument Serif', serif;
-  --font-figtree: 'Figtree', sans-serif;
+  --font-english: 'FontsFree-Net-nasalization-rg', sans-serif;
+  --font-arabic: 'GE-Dinar-One-Medium', sans-serif;
 }
 
 .dark {
@@ -118,8 +118,9 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --font-instrument-serif: var(--font-instrument-serif);
-  --font-sans: var(--font-figtree);
-  --font-figtree: var(--font-figtree);
+  --font-english: var(--font-english);
+  --font-arabic: var(--font-arabic);
+  --font-sans: var(--font-english);
 }
 
 @layer base {
@@ -128,12 +129,20 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-figtree);
+    font-family: var(--font-english), sans-serif;
+  }
+
+  [dir='rtl'] body {
+    font-family: var(--font-arabic), sans-serif;
   }
 }
 
-.instrument {
-  font-family: var(--font-instrument-serif);
+.font-english {
+  font-family: var(--font-english), sans-serif;
+}
+
+.font-arabic {
+  font-family: var(--font-arabic), sans-serif;
 }
 
 /* Added RTL support styles */

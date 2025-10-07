@@ -1,23 +1,21 @@
+import localFont from 'next/font/local'
 import type React from 'react'
 import type { Metadata } from 'next'
-import { Figtree, Cairo } from 'next/font/google'
 import { GeistMono } from 'geist/font/mono'
 import { LanguageProvider } from '@/contexts/language-context'
 import FontDirectionWrapper from '@/contexts/FontWrapper'
 import './globals.css'
 
-// English font
-const figtree = Figtree({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+// English font — Nasalization
+const nasalization = localFont({
+  src: './../public/fonts/FontsFree-Net-nasalization-rg.ttf',
   variable: '--font-english',
   display: 'swap',
 })
 
-// Arabic font
-const cairo = Cairo({
-  subsets: ['arabic', 'latin'],
-  weight: ['300', '400', '500', '600', '700'],
+// Arabic font — GE Dinar One
+const geDinar = localFont({
+  src: './../public/fonts/GE-Dinar-One-Medium.otf',
   variable: '--font-arabic',
   display: 'swap',
 })
@@ -36,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${figtree.variable} ${cairo.variable} ${GeistMono.variable}`}
+        className={`${nasalization.variable} ${geDinar.variable} ${GeistMono.variable} antialiased`}
       >
         <LanguageProvider>
           <FontDirectionWrapper>{children}</FontDirectionWrapper>
