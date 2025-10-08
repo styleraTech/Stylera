@@ -51,7 +51,7 @@ export default function HeroSection() {
           {/* Description */}
           <P
             variants={textVariants}
-            className='text-lg md:text-xl font-figtree text-white/70 mb-10 md:mb-12 leading-relaxed max-w-2xl mx-auto sm:mx-0 text-center sm:text-left'
+            className='text-lg md:text-xl text-white/70 mb-10 md:mb-12 leading-relaxed max-w-2xl mx-auto sm:mx-0 text-center sm:text-start'
           >
             {t('hero.description')}
           </P>
