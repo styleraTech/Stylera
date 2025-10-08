@@ -16,6 +16,7 @@ import {
   textVariants,
 } from '@/constants/animation'
 import InViewSection from '@/components/ui/Custom-ui/in-view-section'
+import { toast } from 'sonner' // ✅ Make sure you have installed sonner (`npm i sonner`)
 
 export default function ContactForm() {
   const { t } = useLanguage()
@@ -38,8 +39,18 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+
+    // Mock API delay
     await new Promise((r) => setTimeout(r, 1500))
-    console.log('Form submitted:', formData)
+
+    console.log('✅ Form submitted:', formData)
+
+    // ✅ Show success toast
+    toast.success(
+      t('contactPage.form.successMessage') || 'Message sent successfully!'
+    )
+
+    // Reset form
     setIsSubmitting(false)
     setFormData({
       name: '',
@@ -69,6 +80,7 @@ export default function ContactForm() {
         <Card className='bg-slate-800/50 border-slate-700 p-8'>
           <form onSubmit={handleSubmit} className='space-y-6'>
             <div className='grid md:grid-cols-2 gap-6'>
+              {/* Name */}
               <div>
                 <label className='block text-white font-semibold mb-2'>
                   {t('contactPage.form.name')} {t('contactPage.form.required')}
@@ -78,9 +90,14 @@ export default function ContactForm() {
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  placeholder={
+                    t('contactPage.form.placeholders.name') || 'John Doe'
+                  }
                   className='bg-slate-700 border-slate-600 text-white'
                 />
               </div>
+
+              {/* Email */}
               <div>
                 <label className='block text-white font-semibold mb-2'>
                   {t('contactPage.form.email')} {t('contactPage.form.required')}
@@ -91,11 +108,16 @@ export default function ContactForm() {
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  placeholder={
+                    t('contactPage.form.placeholders.email') ||
+                    'john@example.com'
+                  }
                   className='bg-slate-700 border-slate-600 text-white'
                 />
               </div>
             </div>
 
+            {/* Phone / Company */}
             <div className='grid md:grid-cols-2 gap-6'>
               <div>
                 <label className='block text-white font-semibold mb-2'>
@@ -105,9 +127,14 @@ export default function ContactForm() {
                   name='phone'
                   value={formData.phone}
                   onChange={handleChange}
+                  placeholder={
+                    t('contactPage.form.placeholders.phone') ||
+                    '+218 92 123 4567'
+                  }
                   className='bg-slate-700 border-slate-600 text-white'
                 />
               </div>
+
               <div>
                 <label className='block text-white font-semibold mb-2'>
                   {t('contactPage.form.company')}
@@ -116,11 +143,13 @@ export default function ContactForm() {
                   name='company'
                   value={formData.company}
                   onChange={handleChange}
+                  placeholder={t('contactPage.form.placeholders.company')}
                   className='bg-slate-700 border-slate-600 text-white'
                 />
               </div>
             </div>
 
+            {/* Project Type */}
             <div>
               <label className='block text-white font-semibold mb-2'>
                 {t('contactPage.form.projectType')}
@@ -152,6 +181,7 @@ export default function ContactForm() {
               </select>
             </div>
 
+            {/* Message */}
             <div>
               <label className='block text-white font-semibold mb-2'>
                 {t('contactPage.form.message')} {t('contactPage.form.required')}
@@ -162,11 +192,15 @@ export default function ContactForm() {
                 onChange={handleChange}
                 required
                 rows={6}
+                placeholder={
+                  t('contactPage.form.placeholders.message') ||
+                  'Tell us more about your project goals...'
+                }
                 className='bg-slate-700 border-slate-600 text-white'
-                placeholder={t('contactPage.form.messagePlaceholder')}
               />
             </div>
 
+            {/* Submit */}
             <Button
               type='submit'
               disabled={isSubmitting}

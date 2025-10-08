@@ -476,6 +476,15 @@ const translations = {
         submit: 'Send Message',
         sending: 'Sending...',
         required: '*',
+        placeholders: {
+          name: 'John Doe',
+          email: 'john@example.com',
+          phone: '+218 92 123 4567',
+          company: 'Ebtkar Tech',
+          message:
+            'Tell us about your project, goals, and any specific requirements...',
+        },
+        successMessage: 'Your message has been sent successfully!',
       },
     },
     // Contact
@@ -944,6 +953,14 @@ const translations = {
         submit: 'إرسال الرسالة',
         sending: 'جارٍ الإرسال...',
         required: '*',
+        placeholders: {
+          name: 'أحمد محمد',
+          email: 'ahmed@example.com',
+          phone: '+218 92 123 4567',
+          company: 'شركة ابتكار',
+          message: 'أخبرنا عن مشروعك وأهدافك والمتطلبات الخاصة...',
+        },
+        successMessage: 'تم إرسال رسالتك بنجاح!',
       },
     },
     // Team
