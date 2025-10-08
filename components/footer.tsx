@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className='bg-card/20 border-t border-border'>
       <div className='container mx-auto px-6 py-12'>
-        <div className='grid grid-cols-1 md:grid-cols-4 gap-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
           {/* Company Info */}
           <div
             className={`md:col-span-2 ${
@@ -99,7 +99,7 @@ export default function Footer() {
               {language === 'ar' ? 'تواصل معنا' : 'Contact Info'}
             </h4>
             <ul
-              className={`space-y-3 flex flex-col justify-center items-start`}
+              className={`space-y-3 flex flex-col justify-center items-start text-sm`}
             >
               {/*  WhatsApp Link */}
               <li
@@ -154,7 +154,7 @@ export default function Footer() {
             language === 'ar' ? 'md:flex-row-reverse' : ''
           }`}
         >
-          <p className='text-white/60 text-sm'>
+          <p className='text-white/60 text-xs font-semibold sm:text-sm'>
             {language === 'ar'
               ? `© ${currentYear} ستايليرا تك. جميع الحقوق محفوظة.`
               : `© ${currentYear} StyleraTech. All rights reserved.`}
