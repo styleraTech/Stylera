@@ -14,6 +14,8 @@ import Footer from '@/components/footer'
 import PulsingCircle from '@/components/pulsing-circle'
 import PulsingCirclePhone from '@/components/pulsing-circle-phone'
 import ShaderBackground from '@/components/shader-background'
+import WhatsAppButton from '@/components/whats-app'
+import LiveChatMock from '@/components/livechat'
 
 export default function StyleraTechPortfolio() {
   return (
@@ -32,44 +34,23 @@ export default function StyleraTechPortfolio() {
         </div>
       </ShaderBackground>
 
-      {/* Services Section */}
       <div className='bg-background'>
         <ServicesSection />
-      </div>
-
-      <div className='bg-background'>
         <TechnologiesSection />
-      </div>
-
-      <div className='bg-background'>
         <ProjectsSection />
-      </div>
-
-      <div className='bg-background'>
         <TestimonialsSection />
-      </div>
-
-      {/* About Section */}
-      <div className='bg-background'>
         <AboutSection />
-      </div>
-
-      {/* Team Section */}
-      <div className='bg-background'>
         <TeamSection />
-      </div>
-
-      <div className='bg-background'>
         <CTASection />
-      </div>
-
-      {/* Contact Section */}
-      <div className='bg-background'>
         <ContactSection />
+        <Footer />
       </div>
 
-      {/* Footer */}
-      <Footer />
+      {/* Floating Buttons */}
+      <div className='fixed bottom-6 right-6 flex  items-end gap-3 z-50'>
+        <WhatsAppButton />
+        <LiveChatMock />
+      </div>
     </div>
   )
 }
