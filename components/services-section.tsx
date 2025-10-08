@@ -1,7 +1,15 @@
 'use client'
 
 import { useLanguage } from '@/contexts/language-context'
-import { Code, Smartphone, Brain, Palette, ArrowRight } from 'lucide-react'
+import {
+  Code,
+  Smartphone,
+  Brain,
+  Palette,
+  Shield,
+  ArrowRight,
+} from 'lucide-react'
+import Link from 'next/link'
 
 export default function ServicesSection() {
   const { t } = useLanguage()
@@ -31,11 +39,17 @@ export default function ServicesSection() {
       descriptionKey: 'services.design.description',
       gradient: 'from-orange-500 to-red-500',
     },
+    {
+      icon: Shield,
+      titleKey: 'services.pentest.title',
+      descriptionKey: 'services.pentest.description',
+      gradient: 'from-indigo-500 to-blue-700',
+    },
   ]
 
   return (
     <section id='services' className='py-24 relative'>
-      <div className='container mx-auto px-6'>
+      <div className='mx-auto px-10'>
         {/* Section Header */}
         <div className='mx-auto mb-20 text-start'>
           <h2 className='text-4xl text-center md:text-5xl mb-6 font-medium ltr:instrument text-accent'>
@@ -47,7 +61,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Services Grid */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8'>
           {services.map((service) => {
             const Icon = service.icon
             return (
@@ -70,17 +84,6 @@ export default function ServicesSection() {
                   <p className='text-white/70 font-light leading-relaxed mb-6'>
                     {t(service.descriptionKey)}
                   </p>
-
-                  {/* Learn More Link */}
-                  {/* <button className='flex items-center gap-2 text-accent hover:text-accent/80 transition-colors duration-300 group-hover:gap-3'>
-                    <span className='text-sm font-medium'>
-                      {t('services.learnMore')}
-                    </span>
-                    <ArrowRight
-                      size={16}
-                      className='transition-transform duration-300'
-                    />
-                  </button> */}
                 </div>
 
                 {/* Hover Overlay */}
@@ -99,13 +102,16 @@ export default function ServicesSection() {
             <p className='text-white/70 font-light mb-8 leading-relaxed'>
               {t('services.cta.subtitle')}
             </p>
-            <button className='group px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-base transition-all duration-300 hover:bg-primary/90 cursor-pointer flex items-center gap-3 hover:gap-4 mx-auto'>
+            <Link
+              href='/contact'
+              className='group px-8 py-4 w-fit rounded-full bg-primary text-primary-foreground font-medium text-base transition-all duration-300 hover:bg-primary/90 cursor-pointer flex items-center gap-3 hover:gap-4 mx-auto'
+            >
               {t('services.cta.button')}
               <ArrowRight
                 size={20}
                 className='transition-all duration-300 rtl:rotate-180'
               />
-            </button>
+            </Link>
           </div>
         </div>
       </div>

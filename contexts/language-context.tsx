@@ -189,6 +189,11 @@ const translations = {
         description:
           'Beautiful, user-centered designs that convert and engage.',
       },
+      pentest: {
+        title: 'Penetration Testing',
+        description:
+          'We identify vulnerabilities in your systems and strengthen your cybersecurity posture with real-world attack simulations.',
+      },
       learnMore: 'Learn More',
       cta: {
         title: 'Have a project in mind?',
@@ -526,6 +531,11 @@ const translations = {
       design: {
         title: 'تصميم UI/UX',
         description: 'تصاميم جميلة تركز على المستخدم وتحقق التحويل والمشاركة',
+      },
+      pentest: {
+        title: 'اختبار الاختراق',
+        description:
+          'نقوم بتحديد الثغرات في أنظمتك وتعزيز مستوى الأمان السيبراني لديك من خلال محاكاة هجمات واقعية.',
       },
       learnMore: 'اعرف المزيد',
       cta: {
