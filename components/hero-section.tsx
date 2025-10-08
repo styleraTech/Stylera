@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/contexts/language-context'
 import { ArrowRight, ArrowLeft, Play } from 'lucide-react'
+import Link from 'next/link'
 export default function HeroSection() {
   const { t, isRTL } = useLanguage()
 
@@ -29,7 +30,10 @@ export default function HeroSection() {
 
           {/* CTA Buttons */}
           <div className='flex items-center justify-center sm:justify-normal sm:flex-wrap gap-6'>
-            <button className='group py-3 px-6 md:px-8 md:py-4 rounded-full bg-primary text-primary-foreground font-medium text-sm sm:text-base transition-all duration-300 hover:bg-primary/80 cursor-pointer flex items-center gap-3'>
+            <Link
+              href='/contact'
+              className='group py-3 px-6 md:px-8 md:py-4 rounded-full bg-primary text-primary-foreground font-medium text-sm sm:text-base transition-all duration-300 hover:bg-primary/80 cursor-pointer flex items-center gap-3'
+            >
               {t('hero.cta.primary')}
               {isRTL ? (
                 <ArrowLeft
@@ -42,9 +46,12 @@ export default function HeroSection() {
                   className='transition-all duration-300 hidden sm:block'
                 />
               )}
-            </button>
+            </Link>
 
-            <button className='group py-3 px-6 md:px-8 md:py-4 rounded-full bg-transparent border border-white/30 text-white font-medium text-sm sm:text-base transition-all duration-300 hover:bg-white/10 hover:border-white/50 cursor-pointer flex items-center gap-3'>
+            <Link
+              href='/services'
+              className='group py-3 px-6 md:px-8 md:py-4 rounded-full bg-transparent border border-white/30 text-white font-medium text-sm sm:text-base transition-all duration-300 hover:bg-white/10 hover:border-white/50 cursor-pointer flex items-center gap-3'
+            >
               {isRTL ? (
                 <>
                   {t('hero.cta.secondary')}
@@ -62,7 +69,7 @@ export default function HeroSection() {
                   {t('hero.cta.secondary')}
                 </>
               )}
-            </button>
+            </Link>
           </div>
 
           {/* Stats */}
