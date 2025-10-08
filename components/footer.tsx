@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/contexts/language-context'
 import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Footer() {
   const { language } = useLanguage()
@@ -18,8 +19,12 @@ export default function Footer() {
             }`}
           >
             <div className='text-white font-semibold text-2xl tracking-tight mb-4'>
-              <span className='font-light'>Stylera</span>
-              <span className='text-accent'>Tech</span>
+              <Image
+                src='/styleraLOGO.PNG'
+                alt='StyleraTech'
+                width={200}
+                height={200}
+              ></Image>
             </div>
             <p className='text-white/70 font-light leading-relaxed mb-6 max-w-md'>
               {language === 'ar'
