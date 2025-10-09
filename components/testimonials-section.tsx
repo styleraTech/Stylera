@@ -4,12 +4,13 @@ import { useLanguage } from '@/contexts/language-context'
 import { Card } from '@/components/ui/card'
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
+import Image from 'next/image'
 
 const testimonials = [
-  { id: 1, avatar: '/client-1.jpg' },
-  { id: 2, avatar: '/client-2.jpg' },
-  { id: 3, avatar: '/client-3.jpg' },
-  { id: 4, avatar: '/client-4.jpg' },
+  { id: 1, avatar: '/images/296fe121-5dfa-43f4-98b5-db50019738a7.jpg' },
+  { id: 2, avatar: '/images/296fe121-5dfa-43f4-98b5-db50019738a7.jpg' },
+  { id: 3, avatar: '/images/296fe121-5dfa-43f4-98b5-db50019738a7.jpg' },
+  { id: 4, avatar: '/images/296fe121-5dfa-43f4-98b5-db50019738a7.jpg' },
 ]
 
 export default function TestimonialsSection() {
@@ -47,9 +48,11 @@ export default function TestimonialsSection() {
               >
                 {/* Avatar */}
                 <div className='flex-shrink-0'>
-                  <img
-                    src={`/placeholder.svg?height=120&width=120&query=portrait professional`}
-                    alt={t(`testimonials.items.${index}.name`)}
+                  <Image
+                    src={testimonial.avatar}
+                    alt='person'
+                    width={100}
+                    height={100}
                     className='w-28 h-28 rounded-full object-cover border-4 border-accent shadow-lg'
                   />
                 </div>
