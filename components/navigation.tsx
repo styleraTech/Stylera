@@ -45,7 +45,8 @@ export default function Navigation({ dictionary }: NavigationProps) {
           src='/styleraLOGO.PNG'
           alt='StyleraTech Logo'
           width={200}
-          height={200}
+          height={50}
+          priority
           className='w-40 lg:w-48 xl:w-52 h-auto'
         />
       </Link>
