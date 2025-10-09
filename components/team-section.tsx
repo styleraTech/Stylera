@@ -1,7 +1,7 @@
 'use client'
 
 import { useLanguage } from '@/contexts/language-context'
-import { Linkedin, Github, Twitter } from 'lucide-react'
+import { FaGithub, FaLinkedin, FaBehance } from 'react-icons/fa'
 import Link from 'next/link'
 import InViewSection from './ui/Custom-ui/in-view-section'
 import {
@@ -18,65 +18,85 @@ export default function TeamSection() {
 
   const teamMembers = [
     {
-      name: language === 'ar' ? 'أحمد محمد' : 'Ahmed Mohamed',
+      name: language === 'ar' ? 'لاست هيرميس' : 'Last Hermis',
       position:
         language === 'ar'
-          ? 'المدير التنفيذي ومطور الواجهات الأمامية'
-          : 'CEO & Frontend Developer',
-      image: '/professional-male-developer.png',
+          ? 'المالك لشركة Stylera Tech | مهندس برمجيات'
+          : 'Owner of Stylera Tech | Software Engineer',
+      image: '/images/Levi_(854).png',
       bio:
         language === 'ar'
-          ? 'خبير في تطوير الواجهات الأمامية مع أكثر من 8 سنوات من الخبرة في React و Next.js'
-          : 'Frontend expert with 8+ years of experience in React and Next.js development',
+          ? 'مؤسس شركة Stylera Tech ومهندس برمجيات ذو خبرة تزيد عن ست سنوات في تطوير البرمجيات المتقدمة.'
+          : 'Founder of Stylera Tech and software engineer with over 6 years of experience building advanced digital solutions.',
       social: {
         linkedin: '#',
         github: '#',
-        twitter: '#',
       },
+      role: 'owner',
     },
     {
-      name: language === 'ar' ? 'فاطمة علي' : 'Fatima Ali',
+      name: language === 'ar' ? 'ريـم عصام' : 'Reem Esam',
       position:
-        language === 'ar' ? 'مطورة الواجهات الخلفية' : 'Backend Developer',
-      image: '/professional-female-developer.png',
+        language === 'ar'
+          ? 'مصممة واجهات المستخدم وتجربة المستخدم'
+          : 'UI/UX Designer',
+      image: '/images/Reem.jpg',
       bio:
         language === 'ar'
-          ? 'متخصصة في تطوير الأنظمة الخلفية وقواعد البيانات مع خبرة واسعة في Node.js و Python'
-          : 'Backend systems specialist with extensive experience in Node.js and Python',
+          ? 'مصممة واجهات وتجارب مستخدم مبدعة تهتم بالتفاصيل وتجربة المستخدم المثالية.'
+          : 'Creative UI/UX designer focused on delivering seamless and aesthetic user experiences.',
       social: {
-        linkedin: '#',
-        github: '#',
-        twitter: '#',
+        linkedin:
+          'https://www.linkedin.com/in/reemesam?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+        behance: 'https://www.behance.net/reemesam2',
       },
+      role: 'designer',
     },
     {
-      name: language === 'ar' ? 'عمر حسن' : 'Omar Hassan',
-      position: language === 'ar' ? 'مصمم UI/UX' : 'UI/UX Designer',
-      image: '/professional-male-designer.png',
-      bio:
-        language === 'ar'
-          ? 'مصمم إبداعي يركز على تجربة المستخدم مع خبرة في Figma و Adobe Creative Suite'
-          : 'Creative designer focused on user experience with expertise in Figma and Adobe Creative Suite',
-      social: {
-        linkedin: '#',
-        github: '#',
-        twitter: '#',
-      },
-    },
-    {
-      name: language === 'ar' ? 'سارة أحمد' : 'Sara Ahmed',
+      name: language === 'ar' ? 'آلاء سي' : 'Alaa Sy',
       position:
-        language === 'ar' ? 'مطورة تطبيقات الجوال' : 'Mobile App Developer',
-      image: '/professional-female-mobile-developer-portrait.jpg',
+        language === 'ar'
+          ? 'مصممة واجهات المستخدم وتجربة المستخدم'
+          : 'UI/UX Designer',
+      image: '/images/Alaa.jpg',
       bio:
         language === 'ar'
-          ? 'خبيرة في تطوير تطبيقات الجوال باستخدام React Native و Flutter'
-          : 'Mobile development expert specializing in React Native and Flutter applications',
+          ? 'مصممة UX/UI بخبرة في تحويل الأفكار إلى تصاميم عملية وجذابة.'
+          : 'Experienced UI/UX designer skilled in turning ideas into intuitive and engaging designs.',
+      social: {
+        linkedin: '#',
+        behance: '#',
+      },
+      role: 'designer',
+    },
+    {
+      name: language === 'ar' ? 'عبدالرحمن' : 'Abdulrahman Super',
+      position: language === 'ar' ? 'مطور برمجيات' : 'Software Developer',
+      image: '/images/Abdo.jpg',
+      bio:
+        language === 'ar'
+          ? 'مطور برمجيات بخبرة في تقنيات متنوعة وتطبيقات الويب الحديثة.'
+          : 'Software developer with experience in various technologies.',
       social: {
         linkedin: '#',
         github: '#',
-        twitter: '#',
       },
+      role: 'developer',
+    },
+    {
+      name: language === 'ar' ? 'ساجي محمد' : 'Saje Mohammed',
+      position:
+        language === 'ar' ? 'مطور واجهات أمامية' : 'Front-End Developer',
+      image: '/images/Saje New.jpg',
+      bio:
+        language === 'ar'
+          ? 'متخصص في تطوير الواجهات الأمامية باستخدام React و Next.js.'
+          : 'Front-end developer specialist in React and Next.js.',
+      social: {
+        linkedin: 'https://www.linkedin.com/in/saje-mohammed-20783b299/',
+        github: 'https://github.com/Saje0',
+      },
+      role: 'developer',
     },
   ]
 
@@ -104,8 +124,8 @@ export default function TeamSection() {
             variants={textVariants}
           >
             {language === 'ar'
-              ? 'تعرف على فريقنا المتميز من المطورين والمصممين المتحمسين لإنشاء حلول رقمية استثنائية'
-              : 'Meet our exceptional team of developers and designers passionate about creating outstanding digital solutions'}
+              ? 'تعرف على فريقنا المتميز من المصممين والمطورين المتحمسين لإنشاء حلول رقمية استثنائية'
+              : 'Meet our talented team of designers and developers passionate about crafting exceptional digital solutions.'}
           </P>
         </Div>
 
@@ -146,24 +166,32 @@ export default function TeamSection() {
                     language === 'ar' ? 'justify-end' : 'justify-start'
                   }`}
                 >
+                  {/* LinkedIn (common) */}
                   <a
                     href={member.social.linkedin}
                     className='w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-primary transition-all duration-300'
                   >
-                    <Linkedin size={16} />
+                    <FaLinkedin size={16} />
                   </a>
-                  <a
-                    href={member.social.github}
-                    className='w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-primary transition-all duration-300'
-                  >
-                    <Github size={16} />
-                  </a>
-                  <a
-                    href={member.social.twitter}
-                    className='w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-primary transition-all duration-300'
-                  >
-                    <Twitter size={16} />
-                  </a>
+
+                  {/* Conditional Social Icons */}
+                  {member.role === 'designer' && (
+                    <a
+                      href={member.social.behance}
+                      className='w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-primary transition-all duration-300'
+                    >
+                      <FaBehance size={16} />
+                    </a>
+                  )}
+
+                  {(member.role === 'developer' || member.role === 'owner') && (
+                    <a
+                      href={member.social.github}
+                      className='w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-primary transition-all duration-300'
+                    >
+                      <FaGithub size={16} />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -179,7 +207,7 @@ export default function TeamSection() {
             <p className='text-white/70 font-light mb-8 leading-relaxed'>
               {language === 'ar'
                 ? 'نحن دائماً نبحث عن المواهب المتميزة للانضمام إلى فريقنا. إذا كنت شغوفاً بالتكنولوجيا والابتكار، فنحن نود أن نسمع منك'
-                : "We're always looking for talented individuals to join our team. If you're passionate about technology and innovation, we'd love to hear from you"}
+                : "We're always looking for talented individuals to join our team. If you're passionate about technology and innovation, we'd love to hear from you."}
             </p>
             <Link href='/join-our-team' className='inline-block'>
               <button className='px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-base transition-all duration-300 hover:bg-primary/90 cursor-pointer'>
