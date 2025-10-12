@@ -1,5 +1,5 @@
 import Navigation from '@/components/layout/navigation'
-import ShaderBackground from '@/components/shader-background'
+import ShaderBackground from '@/components/ui/Custom-ui/shader-background/shader-background'
 import TeamSection from '@/components/shared/team-section'
 import AboutHero from '@/components/about/about-hero'
 import OurStory from '@/components/about/our-story'

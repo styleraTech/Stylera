@@ -1,5 +1,5 @@
 import Navigation from '@/components/layout/navigation'
-import ShaderBackground from '@/components/shader-background'
+import ShaderBackground from '@/components/ui/Custom-ui/shader-background/shader-background'
 import ServicesHeroSection from '@/components/services/services-hero-section'
 import DetailedServices from '@/components/services/services-details'
 import HowWeWork from '@/components/services/how-we-work'

@@ -1,5 +1,5 @@
 import Navigation from '@/components/layout/navigation'
-import ShaderBackground from '@/components/shader-background'
+import ShaderBackground from '@/components/ui/Custom-ui/shader-background/shader-background'
 import ContactHero from '@/components/contact-us/contact-hero'
 import ContactInfo from '@/components/contact-us/contact-info'
 import BusinessHours from '@/components/contact-us/business-hours'
