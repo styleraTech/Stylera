@@ -95,21 +95,15 @@ export default function TechnologiesSection({
 
   return (
     <InViewSection className='py-20 px-4' variants={defaultContainerVariants}>
-      <Div className='max-w-7xl mx-auto'>
+      <div className='max-w-7xl mx-auto'>
         {/* Section Header */}
         <Div className='text-center mb-16' variants={itemVariants}>
-          <H2
-            className='text-4xl md:text-5xl font-bold text-accent mb-6'
-            variants={textVariants}
-          >
+          <h2 className='text-4xl md:text-5xl font-bold text-accent mb-6'>
             {dictionary.title}
-          </H2>
-          <P
-            className='text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed'
-            variants={textVariants}
-          >
+          </h2>
+          <p className='text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed'>
             {dictionary.subtitle}
-          </P>
+          </p>
         </Div>
 
         {/* Technologies Grid */}
@@ -125,13 +119,13 @@ export default function TechnologiesSection({
                     {tech.icon}
                   </div>
                   <h3 className='text-white font-semibold mb-2'>{tech.name}</h3>
-                  <p className='text-white/50 text-sm'>{tech.category}</p>
+                  {/* <p className='text-white/50 text-sm'>{tech.category}</p> */}
                 </div>
               </Card>
             </Div>
           ))}
         </Div>
-      </Div>
+      </div>
     </InViewSection>
   )
 }

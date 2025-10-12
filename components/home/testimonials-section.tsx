@@ -1,7 +1,4 @@
-'use client'
-
 import { Card } from '@/components/ui/card'
-import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
 import Image from 'next/image'
 
@@ -40,16 +37,11 @@ export default function TestimonialsSection({
         <div className='space-y-16'>
           {dictionary.items.map((item, index) => {
             const alignRight = index % 2 === 1
-            const delay = index * 0.2
             const avatar = avatars[index] || avatars[0]
 
             return (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay }}
-                viewport={{ once: true }}
                 className={`flex flex-col md:flex-row items-center gap-10 ${
                   alignRight
                     ? isRTL
@@ -105,7 +97,7 @@ export default function TestimonialsSection({
                     </div>
                   </div>
                 </Card>
-              </motion.div>
+              </div>
             )
           })}
         </div>

@@ -3,20 +3,16 @@
 import { Target, Users, Lightbulb, Award } from 'lucide-react'
 import {
   Div,
-  H2,
-  P,
   defaultContainerVariants,
   itemVariants,
-  textVariants,
 } from '@/constants/animation'
 import InViewSection from '../ui/Custom-ui/framer-motion/in-view-section'
 
 interface AboutSectionProps {
   dictionary?: Dictionary['HomeWhoWeAre']
-  isRTL?: boolean
 }
 
-export default function AboutSection({ dictionary, isRTL }: AboutSectionProps) {
+export default function AboutSection({ dictionary }: AboutSectionProps) {
   if (!dictionary) return null
 
   const values = [
@@ -54,36 +50,27 @@ export default function AboutSection({ dictionary, isRTL }: AboutSectionProps) {
       className='py-24 relative bg-card/20'
       variants={defaultContainerVariants}
     >
-      <Div className='container mx-auto px-6'>
+      <div className='container mx-auto px-6'>
         {/* Header */}
         <Div
           className='max-w-4xl mx-auto mb-20 text-center'
           variants={itemVariants}
         >
-          <H2
-            className='text-4xl text-center md:text-5xl font-light text-white mb-8'
-            variants={textVariants}
-          >
+          <h2 className='text-4xl text-center md:text-5xl font-light text-white mb-8'>
             <span className='font-medium ltr:instrument text-accent'>
               {dictionary.about.title}
             </span>
-          </H2>
-          <P
-            className='text-xl md:text-2xl text-white/80 font-light leading-relaxed mb-8'
-            variants={textVariants}
-          >
+          </h2>
+          <p className='text-xl md:text-2xl text-white/80 font-light leading-relaxed mb-8'>
             {dictionary.about.description}
-          </P>
-          <P
-            className='text-lg text-white/70 font-light leading-relaxed'
-            variants={textVariants}
-          >
+          </p>
+          <p className='text-lg text-white/70 font-light leading-relaxed'>
             {dictionary.about.more}
-          </P>
+          </p>
         </Div>
 
         {/* Mission & Vision */}
-        <Div className='grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20'>
           <Div
             className={`bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-sm border border-border rounded-2xl p-8`}
             variants={itemVariants}
@@ -107,17 +94,17 @@ export default function AboutSection({ dictionary, isRTL }: AboutSectionProps) {
               {dictionary.mission.description}
             </p>
           </Div>
-        </Div>
+        </div>
 
         {/* Core Values */}
-        <Div className={`mb-20`}>
+        <div className={`mb-20`}>
           <h3 className='text-3xl font-light text-white mb-12 text-center'>
             <span className='font-medium ltr:instrument text-accent'>
               {dictionary.coreValues.title}
             </span>
           </h3>
 
-          <Div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {values.map((value, index) => {
               const Icon = value.icon
               return (
@@ -138,13 +125,13 @@ export default function AboutSection({ dictionary, isRTL }: AboutSectionProps) {
                 </Div>
               )
             })}
-          </Div>
-        </Div>
+          </div>
+        </div>
 
         {/* Stats */}
-        <Div
+        <div
           className='bg-gradient-to-r from-primary/5 to-accent/5 backdrop-blur-sm border border-border rounded-2xl p-12'
-          variants={itemVariants}
+          // variants={itemVariants}
         >
           <div className='grid grid-cols-2 md:grid-cols-4 gap-8 text-center'>
             <div>
@@ -180,8 +167,8 @@ export default function AboutSection({ dictionary, isRTL }: AboutSectionProps) {
               </div>
             </div>
           </div>
-        </Div>
-      </Div>
+        </div>
+      </div>
     </InViewSection>
   )
 }
