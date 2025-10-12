@@ -50,7 +50,6 @@ export default async function StyleraTechPortfolio({
         <TeamSection dictionary={dictionary.teamSection} />
         <CTASection dictionary={dictionary.cta} />
         <ContactSection dictionary={dictionary.contactUs} />
-        <Footer dictionary={dictionary.footer} />
       </div>
 
       {/* Floating Buttons */}

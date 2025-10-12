@@ -81,7 +81,10 @@ export default function ContactInfo({ dictionary }: ContactInfoProps) {
                 <h3 className='text-xl font-bold text-white mb-3'>
                   {info.title}
                 </h3>
-                <p className='text-slate-300 text-lg group-hover:text-blue-400 transition-colors'>
+                <p
+                  className='text-slate-300 text-lg group-hover:text-blue-400 transition-colors'
+                  dir='ltr'
+                >
                   {info.value}
                 </p>
               </Card>
