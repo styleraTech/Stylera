@@ -425,7 +425,6 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
   },
-
   "HomeWhoWeAre": {
     "about": {
       "title": "Who We Are",
@@ -459,5 +458,27 @@
       "yearsExperience": "Years Experience",
       "clientSatisfaction": "Client Satisfaction"
     }
+  },
+  "ApplyForm": {
+    "nameLabel": "Full Name",
+    "namePlaceholder": "Enter your full name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@example.com",
+    "roleLabel": "Role you're applying for",
+    "rolePlaceholder": "Select a role",
+    "coverLetterLabel": "Cover Letter (optional)",
+    "coverLetterPlaceholder": "Write a short introduction about yourself",
+    "submit": "Submit Application",
+    "sending": "Sending...",
+    "success": "Application submitted successfully",
+    "nameError": "Name is required",
+    "emailError": "Invalid email",
+    "roleError": "Please select a role",
+    "frontend": "Frontend Developer",
+    "backend": "Backend Developer",
+    "fullstack": "Full Stack Developer",
+    "uiux": "UI/UX Designer",
+    "mobile": "Mobile Developer",
+    "other": "Other"
   }
 }

@@ -8,37 +8,31 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
-import { useLanguage } from '@/contexts/language-context'
 import { Div, P, comeFromBottomItem, textVariants } from '@/constants/animation'
 
-// ✅ Roles
-const roles = [
-  'Frontend Developer',
-  'Backend Developer',
-  'Full Stack Developer',
-  'UI/UX Designer',
-  'Mobile Developer',
-  'Other',
-]
+interface JoinTeamFormProps {
+  dictionary: Dictionary['ApplyForm']
+  isRTL?: boolean
+}
 
-export default function JoinTeamForm() {
-  const { language } = useLanguage()
-  const isArabic = language === 'ar'
+export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
+  const t = dictionary
+  if (!t) return null
+  //  Roles
+  const roles = [
+    t.frontend || 'Frontend Developer',
+    t.backend || 'Backend Developer',
+    t.fullstack || 'Full Stack Developer',
+    t.uiux || 'UI/UX Designer',
+    t.mobile || 'Mobile Developer',
+    t.other || 'Other',
+  ]
 
-  // ✅ Validation schema
+  //  Validation schema (with i18n)
   const applicationSchema = z.object({
-    name: z
-      .string()
-      .min(2, isArabic ? 'الاسم مطلوب ويجب أن يكون أطول' : 'Name is required'),
-    email: z
-      .string()
-      .email(isArabic ? 'بريد إلكتروني غير صالح' : 'Invalid email'),
-    role: z
-      .string()
-      .min(
-        1,
-        isArabic ? 'الرجاء اختيار المسمى الوظيفي' : 'Please select a role'
-      ),
+    name: z.string().min(2, t.nameError || 'Name is required'),
+    email: z.string().email(t.emailError || 'Invalid email'),
+    role: z.string().min(1, t.roleError || 'Please select a role'),
     coverLetter: z.string().optional(),
   })
 
@@ -67,16 +61,14 @@ export default function JoinTeamForm() {
     <form
       onSubmit={handleSubmit(onSubmit)}
       className='space-y-6'
-      dir={isArabic ? 'rtl' : 'ltr'}
+      dir={isRTL ? 'rtl' : 'ltr'}
     >
       {/* Name */}
       <Div variants={comeFromBottomItem}>
-        <Label className='mb-2 block'>
-          {isArabic ? 'الاسم الكامل' : 'Full Name'}
-        </Label>
+        <Label className='mb-2 block'>{t.nameLabel || 'Full Name'}</Label>
         <Input
           {...register('name')}
-          placeholder={isArabic ? 'اكتب اسمك الكامل' : 'Enter your full name'}
+          placeholder={t.namePlaceholder || 'Enter your full name'}
         />
         {errors.name && (
           <p className='text-sm text-destructive mt-1'>{errors.name.message}</p>
@@ -85,12 +77,10 @@ export default function JoinTeamForm() {
 
       {/* Email */}
       <Div variants={comeFromBottomItem}>
-        <Label className='mb-2 block'>
-          {isArabic ? 'البريد الإلكتروني' : 'Email'}
-        </Label>
+        <Label className='mb-2 block'>{t.emailLabel || 'Email'}</Label>
         <Input
           {...register('email')}
-          placeholder='you@example.com'
+          placeholder={t.emailPlaceholder || 'you@example.com'}
           type='email'
         />
         {errors.email && (
@@ -103,14 +93,14 @@ export default function JoinTeamForm() {
       {/* Role */}
       <Div variants={comeFromBottomItem}>
         <Label className='mb-2 block'>
-          {isArabic ? 'المسمى الوظيفي' : "Role you're applying for"}
+          {t.roleLabel || "Role you're applying for"}
         </Label>
         <select
           {...register('role')}
           className='w-full rounded-md border border-border bg-transparent px-3 py-2 text-foreground'
         >
           <option value='' className='text-black'>
-            {isArabic ? 'اختر المسمى' : 'Select a role'}
+            {t.rolePlaceholder || 'Select a role'}
           </option>
           {roles.map((r) => (
             <option key={r} value={r} className='text-black'>
@@ -126,14 +116,13 @@ export default function JoinTeamForm() {
       {/* Cover Letter */}
       <Div variants={comeFromBottomItem}>
         <Label className='mb-2 block'>
-          {isArabic ? 'خطاب التقديم (اختياري)' : 'Cover Letter (optional)'}
+          {t.coverLetterLabel || 'Cover Letter (optional)'}
         </Label>
         <Textarea
           {...register('coverLetter')}
           placeholder={
-            isArabic
-              ? 'اكتب نبذة قصيرة عنك هنا'
-              : 'Write a short introduction about yourself'
+            t.coverLetterPlaceholder ||
+            'Write a short introduction about yourself'
           }
         />
       </Div>
@@ -150,19 +139,13 @@ export default function JoinTeamForm() {
           className='px-8'
         >
           {isSubmitting
-            ? isArabic
-              ? 'جارٍ الإرسال...'
-              : 'Sending...'
-            : isArabic
-            ? 'أرسل الطلب'
-            : 'Submit Application'}
+            ? t.sending || 'Sending...'
+            : t.submit || 'Submit Application'}
         </Button>
 
         {(isSubmitted || isSubmitSuccessful) && (
           <P className='text-green-400 text-sm' variants={textVariants}>
-            {isArabic
-              ? 'تم إرسال الطلب بنجاح '
-              : 'Application submitted successfully '}
+            {t.success || 'Application submitted successfully'}
           </P>
         )}
       </Div>

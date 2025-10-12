@@ -487,5 +487,27 @@
       "yearsExperience": "سنوات الخبرة",
       "clientSatisfaction": "رضا العملاء"
     }
+  },
+  "ApplyForm": {
+    "nameLabel": "الاسم الكامل",
+    "namePlaceholder": "اكتب اسمك الكامل",
+    "emailLabel": "البريد الإلكتروني",
+    "emailPlaceholder": "you@example.com",
+    "roleLabel": "المسمى الوظيفي",
+    "rolePlaceholder": "اختر المسمى الوظيفي",
+    "coverLetterLabel": "خطاب التقديم (اختياري)",
+    "coverLetterPlaceholder": "اكتب نبذة قصيرة عنك هنا",
+    "submit": "أرسل الطلب",
+    "sending": "جارٍ الإرسال...",
+    "success": "تم إرسال الطلب بنجاح!",
+    "nameError": "الاسم مطلوب",
+    "emailError": "بريد إلكتروني غير صالح",
+    "roleError": "الرجاء اختيار المسمى الوظيفي",
+    "frontend": "مطور واجهة أمامية",
+    "backend": "مطور خلفية",
+    "fullstack": "مطور متكامل",
+    "uiux": "مصمم UI/UX",
+    "mobile": "مطور تطبيقات جوال",
+    "other": "أخرى"
   }
 }

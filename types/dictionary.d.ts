@@ -111,14 +111,34 @@ interface Dictionary {
       }[]
     }
   }
-
+  ApplyForm?: {
+    nameLabel: string
+    namePlaceholder: string
+    emailLabel: string
+    emailPlaceholder: string
+    roleLabel: string
+    rolePlaceholder: string
+    coverLetterLabel: string
+    coverLetterPlaceholder: string
+    submit: string
+    sending: string
+    success: string
+    nameError: string
+    emailError: string
+    roleError: string
+    frontend: string
+    backend: string
+    fullstack: string
+    uiux: string
+    mobile: string
+    other: string
+  }
   cta?: {
     title: string
     subtitle: string
     startProject: string
     freeConsultation: string
   }
-
   contactUs?: {
     title: string
     subtitle: string
