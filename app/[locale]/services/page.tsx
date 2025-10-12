@@ -1,5 +1,3 @@
-'use client'
-
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import ShaderBackground from '@/components/shader-background'
@@ -7,23 +5,34 @@ import ServicesHeroSection from '@/components/services/services-hero-section'
 import DetailedServices from '@/components/services/services-details'
 import HowWeWork from '@/components/services/how-we-work'
 import CTASection from '@/components/services/services-cta-section'
-export default function ServicesPage() {
+import { getDictionary } from '@/get-dictionary'
+import { Locale } from '@/i18n-config'
+
+export default async function ServicesPage({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>
+}) {
+  const { locale } = await params
+  const dictionary = await getDictionary(locale)
+  const isRTL = locale === 'ar'
+
   return (
     <div className='relative'>
       <ShaderBackground>
         <div className='relative z-10'>
-          <Navigation />
-          <ServicesHeroSection />
+          <Navigation dictionary={dictionary.nav} />
+          <ServicesHeroSection dictionary={dictionary.OurServicesPage} />
         </div>
       </ShaderBackground>
 
       <div className='bg-background'>
-        <DetailedServices />
-        <HowWeWork />
-        <CTASection />
+        <DetailedServices dictionary={dictionary.OurServicesPage} />
+        <HowWeWork dictionary={dictionary.OurServicesPage} />
+        <CTASection dictionary={dictionary.OurServicesPage} isRTL={isRTL} />
       </div>
 
-      <Footer />
+      <Footer dictionary={dictionary.footer} />
     </div>
   )
 }

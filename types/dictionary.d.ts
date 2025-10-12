@@ -182,6 +182,8 @@ interface Dictionary {
     subtitle: string
     requestQuote: string
     [key: string]: any
+    startProject?: string
+    freeConsultation?: string
   }
   footer?: {
     description: string

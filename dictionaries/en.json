@@ -406,7 +406,9 @@
       }
     ],
     "ctaTitle": "Start Your Project Today",
-    "ctaSubtitle": "Get in touch with us now for a free consultation and a personalized project quote."
+    "ctaSubtitle": "Get in touch with us now for a free consultation and a personalized project quote.",
+    "startProject": "Start Your Project",
+    "freeConsultation": "Free Consultation"
   },
   "footer": {
     "description": "StyleraTech is a software development company specializing in modern web technologies and advanced IT solutions. We help businesses achieve their digital goals.",
