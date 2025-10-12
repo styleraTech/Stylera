@@ -8,7 +8,7 @@ import {
   itemVariants,
   textVariants,
 } from '@/constants/animation'
-import InViewSection from '@/components/ui/Custom-ui/in-view-section'
+import InViewSection from '@/components/ui/Custom-ui/framer-motion/in-view-section'
 import JoinTeamForm from '@/components/join-our-team/join-form'
 
 interface JoinOurTeamPageProps {

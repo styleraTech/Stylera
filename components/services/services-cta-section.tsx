@@ -11,7 +11,7 @@ import {
   defaultContainerVariants,
   textVariants,
 } from '@/constants/animation'
-import InViewSection from '@/components/ui/Custom-ui/in-view-section'
+import InViewSection from '@/components/ui/Custom-ui/framer-motion/in-view-section'
 
 interface CTASectionProps {
   dictionary: Dictionary['OurServicesPage']

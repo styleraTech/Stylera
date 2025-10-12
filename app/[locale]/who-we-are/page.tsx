@@ -1,6 +1,6 @@
 import Navigation from '@/components/layout/navigation'
 import ShaderBackground from '@/components/shader-background'
-import TeamSection from '@/components/team-section'
+import TeamSection from '@/components/shared/team-section'
 import AboutHero from '@/components/about/about-hero'
 import OurStory from '@/components/about/our-story'
 import MissionVision from '@/components/about/mission-vision'

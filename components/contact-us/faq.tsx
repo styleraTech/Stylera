@@ -18,7 +18,7 @@ import {
   itemVariants,
   textVariants,
 } from '@/constants/animation'
-import InViewSection from '@/components/ui/Custom-ui/in-view-section'
+import InViewSection from '@/components/ui/Custom-ui/framer-motion/in-view-section'
 import Link from 'next/link'
 
 interface FaqSectionProps {

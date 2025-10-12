@@ -3,7 +3,7 @@
 import { FaGithub, FaLinkedin, FaBehance } from 'react-icons/fa'
 import Link from 'next/link'
 import Image from 'next/image'
-import InViewSection from './ui/Custom-ui/in-view-section'
+import InViewSection from '../ui/Custom-ui/framer-motion/in-view-section'
 import {
   Div,
   H2,
