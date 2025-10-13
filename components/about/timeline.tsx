@@ -28,31 +28,26 @@ export default function Timeline({ dictionary }: TimelineProps) {
     '2025': Target,
   }
 
-  const colors: Record<string, string> = {
-    '2022': 'text-blue-400',
-    '2023': 'text-purple-400',
-    '2024': 'text-green-400',
-    '2025': 'text-orange-400',
-  }
+  const years = Object.keys(timeline.items)
 
   return (
     <InViewSection
-      className='py-20 px-4 bg-slate-900/50'
+      className='py-20 px-4 bg-[#0B1121]'
       variants={defaultContainerVariants}
     >
       {/* Header */}
       <Div
-        className='max-w-6xl mx-auto text-center mb-16'
+        className='max-w-6xl mx-auto text-center mb-20'
         variants={itemVariants}
       >
         <H2
-          className='text-4xl md:text-5xl font-bold text-accent mb-6'
+          className='text-4xl md:text-5xl font-bold text-cyan-400 mb-4'
           variants={textVariants}
         >
           {timeline.title}
         </H2>
         <P
-          className='text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed'
+          className='text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed'
           variants={textVariants}
         >
           {timeline.subtitle}
@@ -61,30 +56,76 @@ export default function Timeline({ dictionary }: TimelineProps) {
 
       {/* Timeline Items */}
       <Div
-        className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto'
+        className='relative max-w-5xl mx-auto'
         variants={defaultContainerVariants}
       >
-        {Object.entries(timeline.items).map(([year, text], i) => {
-          const Icon = icons[year] || Rocket
-          const color = colors[year] || 'text-blue-400'
+        {/* Vertical Line */}
+        <div className='absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-fuchsia-500/50 via-cyan-500/50 to-fuchsia-500/50 -translate-x-1/2' />
 
-          return (
-            <Div key={i} variants={itemVariants}>
-              <Card className='h-full bg-slate-800/50 border-slate-700 p-6 text-center hover:bg-slate-700/50 transition-all duration-300 group'>
-                <div className='relative mb-6'>
-                  <div className='w-16 h-16 rounded-full bg-slate-700 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300'>
-                    <Icon className={`w-8 h-8 ${color}`} />
-                  </div>
-                  <div className='absolute -top-2 -right-2 w-12 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold'>
-                    {year}
+        <div className='space-y-24'>
+          {Object.entries(timeline.items).map(([year, text], index) => {
+            const Icon = icons[year] || Rocket
+            const isLeft = index % 2 === 0
+
+            return (
+              <Div
+                key={year}
+                className={`relative flex items-center ${
+                  isLeft ? 'justify-start' : 'justify-end'
+                }`}
+                variants={itemVariants}
+              >
+                {/* Card Container - half width */}
+                <div
+                  className={`w-[calc(50%-3rem)] ${isLeft ? 'pr-4' : 'pl-4'}`}
+                >
+                  <Card className='relative h-64 bg-gradient-to-br from-[#1A1F35]/90 to-[#0E162B]/80 border border-fuchsia-500/30 rounded-2xl backdrop-blur-md shadow-[0_0_25px_rgba(168,85,247,0.15)] overflow-visible'>
+                    {/* Inner gradient sheen */}
+                    <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-fuchsia-500/10 to-cyan-500/10 pointer-events-none' />
+
+                    {/* Card Content */}
+                    <div className='relative h-full p-8 text-slate-200 flex flex-col justify-center'>
+                      <h3 className='text-2xl font-semibold text-white mb-3'>
+                        {text.split('—')[0]}
+                      </h3>
+                      <p className='text-slate-300 leading-relaxed text-base'>
+                        {text.split('—')[1]}
+                      </p>
+                    </div>
+                  </Card>
+                </div>
+
+                {/* Icon Node - centered */}
+                <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10'>
+                  <div className='relative'>
+                    <div
+                      className='grid place-items-center h-16 w-16 rounded-full shadow-[0_0_25px_rgba(5,163,190,0.45)] border-[4px] border-[#0B1121]'
+                      style={{
+                        background:
+                          'linear-gradient(145deg, #1E1D56 0%, #05A3BE 100%)',
+                      }}
+                    >
+                      <Icon className='h-6 w-6 text-white' />
+                    </div>
+
+                    {/* Year Pill */}
+                    <div className='absolute -top-3 -right-3'>
+                      <span
+                        className='rounded-full text-white text-xs px-2.5 py-1.5 font-medium shadow-lg whitespace-nowrap'
+                        style={{
+                          background:
+                            'linear-gradient(145deg, #7C4DFF 0%, #9C27B0 100%)',
+                        }}
+                      >
+                        {year}
+                      </span>
+                    </div>
                   </div>
                 </div>
-                <h3 className='text-xl font-bold text-white mb-3'>{year}</h3>
-                <p className='text-slate-300 leading-relaxed text-sm'>{text}</p>
-              </Card>
-            </Div>
-          )
-        })}
+              </Div>
+            )
+          })}
+        </div>
       </Div>
     </InViewSection>
   )
