@@ -7,7 +7,14 @@ import { CalendarDays, Video, PhoneCall } from 'lucide-react'
 import ConfirmBookingDialog from './_components/confirm-dialog'
 import { toast } from 'sonner'
 
-const AppointmentsSchedule = () => {
+interface AppointmentsScheduleProps {
+  dictionary: Dictionary['appointments']
+}
+
+const AppointmentsSchedule: React.FC<AppointmentsScheduleProps> = ({
+  dictionary,
+}) => {
+  if (!dictionary) return null
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date())
   const [selectedTime, setSelectedTime] = useState<string | null>(null)
   const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null)
@@ -47,8 +54,7 @@ const AppointmentsSchedule = () => {
     if (selectedTime) {
       setIsDialogOpen(true)
     } else {
-      // Optional: visual feedback if time not selected
-      alert('Please select a time before choosing a platform.')
+      alert(dictionary.alertSelectTime)
     }
   }
 
@@ -59,8 +65,12 @@ const AppointmentsSchedule = () => {
       platform: selectedPlatform,
       ...data,
     })
-    toast.success('Booking confirmed successfully!', {
-      description: `You’ll receive your ${selectedPlatform} invite soon.`,
+
+    toast.success(dictionary.toastSuccessTitle, {
+      description: dictionary.toastSuccessDescription.replace(
+        '{platform}',
+        selectedPlatform || ''
+      ),
       duration: 4000,
     })
   }
@@ -68,25 +78,23 @@ const AppointmentsSchedule = () => {
   return (
     <section className='py-20 bg-[#0B1121]'>
       <div className='max-w-6xl mx-auto px-4'>
-        {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className='text-center text-3xl sm:text-4xl md:text-5xl font-bold text-cyan-400 mb-16'
         >
-          Let’s Create Something Brilliant Together
+          {dictionary.title}
         </motion.h2>
 
-        {/* Layout */}
         <div className='grid grid-cols-1 md:grid-cols-2 rounded-3xl overflow-hidden shadow-xl'>
-          {/* Left Side – Calendar */}
+          {/* Left side — Calendar */}
           <div className='p-8 bg-gray-200 backdrop-blur-md'>
             <h3 className='text-xl font-semibold text-black mb-2'>
-              Select a Date
+              {dictionary.selectDateTitle}
             </h3>
             <p className='text-[#4A5565] mb-6'>
-              Choose an available date from the calendar
+              {dictionary.selectDateSubtitle}
             </p>
 
             <div className='flex justify-center'>
@@ -111,14 +119,15 @@ const AppointmentsSchedule = () => {
             )}
           </div>
 
-          {/* Right Side – Time Slots + Platform */}
+          {/* Right side — Time + Platform */}
           <div className='p-8 bg-gradient-to-br to-[#9C27B04D]/30 from-[#05A3BE33]/70'>
             <h3 className='text-xl font-semibold text-white mb-2'>
-              Choose Time & Platform
+              {dictionary.chooseTimePlatformTitle}
             </h3>
-            <p className='text-slate-300 mb-6'>Available Time Slots</p>
+            <p className='text-slate-300 mb-6'>
+              {dictionary.availableTimeSlots}
+            </p>
 
-            {/* Time Slots */}
             <div className='grid grid-cols-3 sm:grid-cols-4 gap-3 mb-8'>
               {times.map((time) => (
                 <button
@@ -135,8 +144,10 @@ const AppointmentsSchedule = () => {
               ))}
             </div>
 
-            {/* Platform Selection */}
-            <h4 className='text-white mb-3 font-semibold'>Select Platform</h4>
+            <h4 className='text-white mb-3 font-semibold'>
+              {dictionary.selectPlatform}
+            </h4>
+
             <div className='flex flex-col gap-3'>
               {platforms.map((p) => (
                 <button
@@ -154,12 +165,12 @@ const AppointmentsSchedule = () => {
               ))}
             </div>
 
-            {/* Confirm Dialog */}
             <ConfirmBookingDialog
               open={isDialogOpen}
               onOpenChange={setIsDialogOpen}
               platform={selectedPlatform}
               onConfirm={handleConfirm}
+              dictionary={dictionary}
             />
           </div>
         </div>

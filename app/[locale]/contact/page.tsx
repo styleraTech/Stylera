@@ -35,7 +35,7 @@ export default async function ContactPage({
         <LocationSection dictionary={contact} />
         <FaqSection dictionary={contact} />
         <ContactForm dictionary={contact} />
-        <AppointmentsSchedule />
+        <AppointmentsSchedule dictionary={dictionary.appointments} />
       </div>
     </div>
   )
