@@ -97,11 +97,11 @@ export default function ShaderBackground({ children }: ShaderBackgroundProps) {
           speed={isActive ? 0.25 : 0}
         />
       )}
-      <MeshGradient
+      {/* <MeshGradient
         className='absolute inset-0 w-full h-full opacity-60'
         colors={['#1e1d56', '#473367', '#7c3f98', '#000000']}
         speed={0.18}
-      />
+      /> */}
 
       {children}
     </div>
