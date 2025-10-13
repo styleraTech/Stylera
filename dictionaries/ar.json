@@ -552,5 +552,28 @@
     },
     "footerTitle": "نبني علاقات تدوم.",
     "footerSubtitle": "تواصل معنا ولنخلق معًا شيئًا استثنائيًا."
+  },
+  "appointments": {
+    "title": "دعنا نُبدع شيئًا رائعًا معًا",
+    "selectDateTitle": "اختر التاريخ",
+    "selectDateSubtitle": "اختر تاريخًا متاحًا من التقويم",
+    "chooseTimePlatformTitle": "اختر الوقت والمنصة",
+    "availableTimeSlots": "الأوقات المتاحة",
+    "selectPlatform": "اختر المنصة",
+    "alertSelectTime": "يرجى اختيار الوقت قبل اختيار المنصة.",
+    "toastSuccessTitle": "تم تأكيد الحجز بنجاح!",
+    "toastSuccessDescription": "ستتلقى دعوة {platform} الخاصة بك قريبًا.",
+    "successAlert": "تم إرسال طلب الموعد بنجاح!",
+    "dialogTitle": "تأكيد تفاصيل الحجز",
+    "dialogDescription": "أكمل طلب الاجتماع عبر {platform}",
+    "fullNameLabel": "الاسم الكامل",
+    "fullNamePlaceholder": "أدخل اسمك الكامل",
+    "emailLabel": "عنوان البريد الإلكتروني",
+    "emailPlaceholder": "your.email@example.com",
+    "whatsappLabel": "رقم واتساب",
+    "whatsappPlaceholder": "+966 55 555 5555",
+    "infoText": "سيتم إرسال تفاصيل الموعد إلى تقويمك تلقائيًا.",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد الحجز"
   }
 }

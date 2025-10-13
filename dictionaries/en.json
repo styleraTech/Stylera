@@ -556,5 +556,28 @@
     },
     "footerTitle": "Building connections that last.",
     "footerSubtitle": "Reach out and let’s create something extraordinary together."
+  },
+  "appointments": {
+    "title": "Let’s Create Something Brilliant Together",
+    "selectDateTitle": "Select a Date",
+    "selectDateSubtitle": "Choose an available date from the calendar",
+    "chooseTimePlatformTitle": "Choose Time & Platform",
+    "availableTimeSlots": "Available Time Slots",
+    "selectPlatform": "Select Platform",
+    "alertSelectTime": "Please select a time before choosing a platform.",
+    "toastSuccessTitle": "Booking confirmed successfully!",
+    "toastSuccessDescription": "You’ll receive your {platform} invite soon.",
+    "successAlert": "Your appointment request has been sent successfully!",
+    "dialogTitle": "Confirm Your Booking Details",
+    "dialogDescription": "Complete your meeting request for {platform}",
+    "fullNameLabel": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "your.email@example.com",
+    "whatsappLabel": "WhatsApp Number",
+    "whatsappPlaceholder": "+1 234 567 890",
+    "infoText": "Your appointment details will be sent to your calendar automatically.",
+    "cancel": "Cancel",
+    "confirm": "Confirm Booking"
   }
 }
