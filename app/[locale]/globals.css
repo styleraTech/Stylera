@@ -41,7 +41,7 @@
   --sidebar-border: #334155; /* Subtle sidebar borders */
   --sidebar-ring: #3b82f6; /* Blue for sidebar focus */
   --font-english: 'FontsFree-Net-nasalization-rg', sans-serif;
-  --font-arabic: 'GE-Dinar-One-Medium', sans-serif;
+  --font-arabic: 'Cairo', sans-serif;
 }
 
 .dark {
@@ -150,10 +150,6 @@
 .font-arabic {
   font-family: var(--font-arabic), sans-serif;
 }
-.font-figtree {
-  font-family: var(--font-figtree), sans-serif;
-}
-
 .font-cairo {
   font-family: var(--font-cairo), sans-serif;
 }
@@ -186,24 +182,9 @@
 html {
   --font-english: var(--font-english);
   --font-arabic: var(--font-arabic);
-  --font-mono: var(--font-mono);
   font-family: var(--font-english), sans-serif;
 }
 
-/* English font applied by default */
-.font-english {
-  font-family: var(--font-english), sans-serif;
-}
-
-/* Arabic font */
-.font-arabic {
-  font-family: var(--font-arabic), sans-serif;
-}
-
-/* Optional: monospace font for code or dev areas */
-.font-mono {
-  font-family: var(--font-mono), monospace;
-}
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
