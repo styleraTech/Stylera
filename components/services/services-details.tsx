@@ -57,7 +57,7 @@ export default function DetailedServices({
     <InViewSection className='py-20 px-4' variants={defaultContainerVariants}>
       <Div className='container mx-auto' variants={defaultContainerVariants}>
         {/* Header */}
-        <Div className='text-center mb-16' variants={itemVariants}>
+        {/* <Div className='text-center mb-16' variants={itemVariants}>
           <H2
             className='text-4xl md:text-5xl font-bold text-accent mb-6'
             variants={textVariants}
@@ -70,7 +70,7 @@ export default function DetailedServices({
           >
             {dictionary.subtitle}
           </P>
-        </Div>
+        </Div> */}
 
         {/* Service Cards */}
         <Div className='grid md:grid-cols-2 lg:grid-cols-3 gap-12'>
