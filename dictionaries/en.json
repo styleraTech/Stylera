@@ -1,0 +1,524 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Our Services",
+    "about": "Who We Are",
+    "contact": "Contact Us",
+    "join": "Join Our Team"
+  },
+  "homeHero": {
+    "title": "StyleraTech",
+    "subtitle": "For Software Services",
+    "description": "StyleraTech is a software development company specializing in modern web technologies and advanced IT solutions. We help businesses achieve their digital goals.",
+    "cta": {
+      "primary": "Get Started",
+      "secondary": "Our Services"
+    },
+    "stats": {
+      "projects": "Completed Projects",
+      "clients": "Happy Clients",
+      "experience": "Years Experience",
+      "team": "Team Members"
+    }
+  },
+  "services": {
+    "title": "Our Distinguished Services",
+    "subtitle": "We provide comprehensive technology solutions tailored to your business needs.",
+    "web": {
+      "title": "Web Development",
+      "description": "Modern and fast websites built with the latest technologies."
+    },
+    "mobile": {
+      "title": "Mobile Applications",
+      "description": "Advanced mobile apps for iOS and Android with seamless performance."
+    },
+    "ai": {
+      "title": "Artificial Intelligence",
+      "description": "Smart AI-powered solutions that automate and optimize your business."
+    },
+    "data": {
+      "title": "Data Management",
+      "description": "Advanced systems for managing and analyzing your business data."
+    },
+    "security": {
+      "title": "Cyber Security",
+      "description": "Comprehensive protection for your systems and data against threats."
+    },
+    "design": {
+      "title": "UI/UX Design",
+      "description": "Creative designs focused on usability and exceptional user experience."
+    },
+    "cloud": {
+      "title": "Cloud Computing",
+      "description": "Scalable and secure cloud solutions to power your digital growth."
+    },
+    "business": {
+      "title": "Business Analysis",
+      "description": "Advanced analytics to help you make smarter business decisions."
+    },
+    "chatbot": {
+      "title": "Chatbots",
+      "description": "Intelligent chatbots for customer support and automated interaction."
+    },
+    "cta": {
+      "title": "Have a project in mind?",
+      "subtitle": "Let us help you turn your idea into a stunning digital reality. Get in touch today to discuss your project.",
+      "button": "Start Your Project"
+    }
+  },
+  "technologies": {
+    "title": "Technologies We Use",
+    "subtitle": "We leverage cutting-edge technologies to build robust, scalable, and innovative solutions for our clients."
+  },
+  "projects": {
+    "title": "Our Featured Projects",
+    "subtitle": "Discover some of our most successful projects that showcase our expertise and innovation.",
+    "viewAll": "View All Projects",
+    "items": {
+      "mset": {
+        "title": "Educational Platform",
+        "description": "A modern educational platform built with React and Next.js, enhancing digital learning experiences."
+      }
+    }
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Don't just take our word for it - hear from some of our satisfied clients about their experience working with us.",
+    "items": [
+      {
+        "name": "Ahmed Al-Rashid",
+        "position": "CEO, TechVision",
+        "content": "StyleraTech delivered an exceptional e-commerce platform that exceeded our expectations. Their attention to detail and technical expertise is outstanding."
+      },
+      {
+        "name": "Sarah Johnson",
+        "position": "Founder, HealthCare Plus",
+        "content": "The healthcare management system they built for us has revolutionized our operations. The AI features are incredibly accurate and user-friendly."
+      },
+      {
+        "name": "Mohammed Hassan",
+        "position": "CTO, FinanceFlow",
+        "content": "Our mobile banking app developed by StyleraTech has received excellent user feedback. The security features and performance are top-notch."
+      },
+      {
+        "name": "Lisa Chen",
+        "position": "Director, EduTech Solutions",
+        "content": "The educational platform they created has transformed how we deliver online learning. The personalized AI features are game-changing."
+      }
+    ]
+  },
+  "whoWeAre": {
+    "title": "Who We Are",
+    "subtitle": "We are a team of passionate developers and designers who believe in the power of technology to change the world and improve lives.",
+    "story": {
+      "title": "Our Story",
+      "paragraphs": [
+        "Our journey began in 2022 with a simple dream: to provide innovative technology solutions that help companies grow and thrive in the digital age.",
+        "From humble beginnings as a small team of passionate developers, we have grown into a comprehensive technology company serving clients across various industries.",
+        "We believe technology should not only solve problems but also inspire and empower people to achieve their dreams."
+      ]
+    },
+    "mission": {
+      "title": "Our Mission",
+      "text": "To empower businesses with innovative technology solutions that drive growth, efficiency, and success."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "text": "To be the leading technology partner that transforms ideas into reality and inspires people worldwide."
+    },
+    "values": {
+      "title": "Our Core Values",
+      "subtitle": "The values that guide our work and shape our culture.",
+      "items": {
+        "passion": {
+          "title": "Passion",
+          "description": "We are passionate about what we do and committed to delivering exceptional results."
+        },
+        "excellence": {
+          "title": "Excellence",
+          "description": "We strive for excellence in every project and never settle for mediocrity."
+        },
+        "innovation": {
+          "title": "Innovation",
+          "description": "We embrace innovation and constantly seek new ways to solve problems."
+        },
+        "integrity": {
+          "title": "Integrity",
+          "description": "We operate with honesty, transparency, and respect in all our relationships."
+        }
+      }
+    },
+    "timeline": {
+      "title": "Our Journey Through the Years",
+      "subtitle": "Track our growth and development from the beginning to today.",
+      "items": {
+        "2022": "Company Founded — Started with a vision to transform digital experiences.",
+        "2023": "Team Expansion — Grew to 10+ talented developers and designers.",
+        "2024": "Major Achievements — Completed 50+ successful projects across industries.",
+        "2025": "Future Goals — Expanding internationally and embracing new technologies."
+      }
+    }
+  },
+  "teamSection": {
+    "team": {
+      "title": "Our Team",
+      "description": "Meet our talented team of designers and developers passionate about crafting exceptional digital solutions.",
+      "join_title": "Join Our Team",
+      "join_description": "We're always looking for talented individuals to join our team. If you're passionate about technology and innovation, we'd love to hear from you.",
+      "apply_button": "Apply Now",
+      "members": [
+        {
+          "role": "owner",
+          "name": "Last Hermis",
+          "position": "Owner of Stylera Tech | Software Engineer",
+          "bio": "Founder of Stylera Tech and software engineer with over 6 years of experience building advanced digital solutions.",
+          "image": "/images/Levi_(854).webp",
+          "social": {
+            "linkedin": "#",
+            "github": "#"
+          }
+        },
+        {
+          "role": "designer",
+          "name": "Reem Esam",
+          "position": "UI/UX Designer",
+          "image": "/images/Reem.webp",
+          "bio": "Creative UI/UX designer focused on delivering seamless and aesthetic user experiences.",
+          "social": {
+            "linkedin": "https://www.linkedin.com/in/reemesam?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+            "behance": "https://www.behance.net/reemesam2"
+          }
+        },
+        {
+          "role": "designer",
+          "name": "Alaa Sy",
+          "position": "UI/UX Designer",
+          "bio": "Experienced UI/UX designer skilled in turning ideas into intuitive and engaging designs.",
+          "image": "/images/Alaa2.webp",
+          "social": {
+            "linkedin": "#",
+            "behance": "#"
+          }
+        },
+        {
+          "role": "developer",
+          "name": "Abdulrahman Super",
+          "position": "Software Developer",
+          "bio": "Software developer with experience in various technologies.",
+          "image": "/images/Abdo.webp",
+          "social": {
+            "linkedin": "#",
+            "github": "#"
+          }
+        },
+        {
+          "role": "developer",
+          "name": "Saje Mohammed",
+          "position": "Front-End Developer",
+          "bio": "Front-end developer",
+          "image": "/images/Saje New.webp",
+          "social": {
+            "linkedin": "https://www.linkedin.com/in/saje-mohammed-20783b299/",
+            "github": "https://github.com/Saje0"
+          }
+        }
+      ]
+    }
+  },
+  "cta": {
+    "title": "Ready to Start Your Project?",
+    "subtitle": "Let us help you transform your ideas into stunning digital reality.",
+    "startProject": "Start Your Project",
+    "freeConsultation": "Free Consultation"
+  },
+  "contactUs": {
+    "title": "Contact Us",
+    "subtitle": "We are here to help you transform your ideas into digital reality. Contact us today and get a free consultation",
+    "phone": "Phone",
+    "email": "Email",
+    "location": "Location",
+    "whatsapp": "WhatsApp",
+    "businessHours": {
+      "title": "Business Hours",
+      "subtitle": "We're available during these hours",
+      "weekdays": "Weekdays",
+      "weekdaysTime": "Sunday - Thursday: 9:00 AM - 6:00 PM",
+      "weekend": "Weekend",
+      "weekendTime": "Friday - Saturday: Closed"
+    },
+    "locationSection": {
+      "title": "Our Location",
+      "subtitle": "Visit us at our office in the heart of Libya",
+      "officeTitle": "StyleraTech Office",
+      "address": "Address",
+      "mapPlaceholder": "Click to Open Map",
+      "mapSubtext": "View our location on Google Maps"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Find answers to common questions about our services and process",
+      "questions": [
+        {
+          "question": "What services do you offer?",
+          "answer": "We offer comprehensive technology solutions including web development, mobile applications, AI solutions, and UI/UX design. Our team specializes in modern technologies and can handle projects of any scale."
+        },
+        {
+          "question": "How long does a typical project take?",
+          "answer": "Project timelines vary depending on complexity and scope. A simple website might take 2-4 weeks, while complex applications can take 3-6 months. We provide detailed timelines during our initial consultation."
+        },
+        {
+          "question": "Do you provide ongoing support and maintenance?",
+          "answer": "Yes, we offer comprehensive support and maintenance packages to ensure your application continues to perform optimally. This includes updates, security patches, and technical support."
+        },
+        {
+          "question": "What is your development process?",
+          "answer": "We follow an agile development methodology with regular client communication, iterative development, and thorough testing. Our process includes discovery, design, development, testing, and deployment phases."
+        },
+        {
+          "question": "Can you work with existing systems?",
+          "answer": "We have extensive experience integrating with existing systems and can help modernize legacy applications or build new features that work seamlessly with your current infrastructure."
+        },
+        {
+          "question": "What technologies do you specialize in?",
+          "answer": "We specialize in modern web technologies including React, Next.js, Node.js, Python, mobile development with React Native and Flutter, and AI/ML technologies including TensorFlow and various cloud platforms."
+        },
+        {
+          "question": "How do you ensure data security?",
+          "answer": "We follow the highest security standards in our development process, implement advanced encryption, and apply best security practices. All data is protected, and we sign confidentiality agreements with our clients."
+        },
+        {
+          "question": "Can I track my project's progress?",
+          "answer": "Yes, we provide a project management system that allows you to monitor progress, review completed milestones, and communicate with the development team. We also send regular reports and hold follow-up meetings."
+        }
+      ],
+      "cta": {
+        "title": "Didn't find an answer to your question?",
+        "subtitle": "Our team is ready to assist you, reach out via WhatsApp or Email!",
+        "whatsappButton": "Chat on WhatsApp",
+        "emailButton": "Send an Email"
+      }
+    },
+    "form": {
+      "title": "Start Your Project With Us",
+      "subtitle": "Fill out the form below and we will contact you within 24 hours",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "company": "Company",
+      "projectType": "Project Type",
+      "projectTypeOptions": {
+        "placeholder": "Select project type",
+        "web": "Web Development",
+        "mobile": "Mobile App",
+        "ai": "AI Solution",
+        "design": "UI/UX Design",
+        "other": "Other"
+      },
+      "message": "Project Description",
+      "messagePlaceholder": "Tell us about your project, goals, and any specific requirements...",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "required": "*",
+      "placeholders": {
+        "name": "John Doe",
+        "email": "john@example.com",
+        "phone": "+218 92 123 4567",
+        "company": "Ebtkar Tech",
+        "message": "Tell us about your project, goals, and any specific requirements..."
+      },
+      "successMessage": "Your message has been sent successfully!"
+    }
+  },
+  "OurServicesPage": {
+    "title": "Our Services",
+    "subtitle": "We deliver advanced technology solutions tailored to your needs.",
+    "requestQuote": "Request a Quote",
+
+    "web": {
+      "title": "Web Development",
+      "description": "Modern, fast, and scalable websites built with the latest technologies.",
+      "features": [
+        "Next.js & React",
+        "Responsive Design",
+        "SEO Optimization",
+        "High Performance"
+      ]
+    },
+    "mobile": {
+      "title": "Mobile Applications",
+      "description": "Advanced mobile apps for iOS and Android with seamless performance.",
+      "features": [
+        "Flutter & React Native",
+        "Excellent User Experience",
+        "Optimized Performance",
+        "App Store Deployment"
+      ]
+    },
+    "ai": {
+      "title": "Artificial Intelligence",
+      "description": "Intelligent AI-powered solutions to automate and optimize your business.",
+      "features": [
+        "Machine Learning",
+        "Natural Language Processing",
+        "Computer Vision",
+        "Smart Analytics"
+      ]
+    },
+    "data": {
+      "title": "Data Management",
+      "description": "Advanced systems for managing and analyzing your data efficiently.",
+      "features": [
+        "Database Systems",
+        "Data Analysis",
+        "Smart Reporting",
+        "Predictive Modeling"
+      ]
+    },
+    "security": {
+      "title": "Cyber Security",
+      "description": "Comprehensive protection for your systems and data against threats.",
+      "features": [
+        "Data Encryption",
+        "Security Monitoring",
+        "Penetration Testing",
+        "Security Awareness Training"
+      ]
+    },
+    "design": {
+      "title": "UI/UX Design",
+      "description": "Beautiful and intuitive designs that enhance your brand experience.",
+      "features": [
+        "Interface Design",
+        "User Experience",
+        "Prototyping",
+        "User Testing"
+      ]
+    },
+    "cloud": {
+      "title": "Cloud Computing",
+      "description": "Scalable and secure cloud solutions that empower your digital growth.",
+      "features": [
+        "AWS & Azure",
+        "Docker & Kubernetes",
+        "CI/CD Pipelines",
+        "Monitoring & Analytics"
+      ]
+    },
+    "business": {
+      "title": "Business Analysis",
+      "description": "In-depth insights and analytics for smarter, data-driven decisions.",
+      "features": [
+        "Dashboards",
+        "Interactive Reports",
+        "Trend Analysis",
+        "KPI Tracking"
+      ]
+    },
+    "chatbot": {
+      "title": "Chatbots",
+      "description": "Intelligent chatbots that enhance customer support and engagement.",
+      "features": [
+        "Natural Language Processing",
+        "Machine Learning",
+        "Omnichannel Integration",
+        "Sentiment Analysis"
+      ]
+    },
+
+    "howWeWorkTitle": "How We Work",
+    "howWeWorkSubtitle": "We follow a clear, proven process to ensure the best results for every project.",
+    "steps": [
+      {
+        "title": "Analysis & Research",
+        "description": "We start by understanding your needs and analyzing the project requirements."
+      },
+      {
+        "title": "Planning & Design",
+        "description": "We create a detailed plan and design tailored solutions aligned with your goals."
+      },
+      {
+        "title": "Development & Implementation",
+        "description": "We develop robust, scalable solutions using the latest technologies and standards."
+      },
+      {
+        "title": "Launch & Support",
+        "description": "We launch your project and provide continuous support to ensure long-term success."
+      }
+    ],
+    "ctaTitle": "Start Your Project Today",
+    "ctaSubtitle": "Get in touch with us now for a free consultation and a personalized project quote.",
+    "startProject": "Start Your Project",
+    "freeConsultation": "Free Consultation"
+  },
+  "footer": {
+    "description": "StyleraTech is a software development company specializing in modern web technologies and advanced IT solutions. We help businesses achieve their digital goals.",
+    "quickLinks": "Quick Links",
+    "links": {
+      "home": "Home",
+      "services": "Services",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "contactInfo": "Contact Info",
+    "address": "Tripoli, Libya",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "HomeWhoWeAre": {
+    "about": {
+      "title": "Who We Are",
+      "description": "We are a team of passionate developers and designers dedicated to creating innovative digital solutions. Our expertise spans modern web technologies, mobile development, and cutting-edge AI implementations.",
+      "more": "Since our founding, we've helped dozens of companies and organizations achieve digital transformation and build a strong online presence. We believe in the power of technology to transform businesses and improve people's lives."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "To be the leading software development and technology solutions company in the region, contributing to building a better digital future for everyone."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To deliver innovative, high-quality technical solutions that help our clients achieve their business goals and grow in the digital age."
+    },
+    "coreValues": {
+      "title": "Our Core Values",
+      "values": {
+        "Precision & Quality title": "Precision & Quality",
+        "Precision & Quality description": "We maintain the highest quality standards in every project we undertake.",
+        "Collaboration & Partnership title": "Collaboration & Partnership",
+        "Collaboration & Partnership description": "We work as true partners with our clients to achieve their goals.",
+        "Innovation & Creativity title": "Innovation & Creativity",
+        "Innovation & Creativity description": "We leverage cutting-edge technologies and innovative solutions.",
+        "Excellence & Professionalism title": "Excellence & Professionalism",
+        "Excellence & Professionalism description": "We strive for excellence in every aspect of our work."
+      }
+    },
+    "stats": {
+      "projectsCompleted": "Projects Completed",
+      "happyClients": "Happy Clients",
+      "yearsExperience": "Years Experience",
+      "clientSatisfaction": "Client Satisfaction"
+    }
+  },
+  "ApplyForm": {
+    "nameLabel": "Full Name",
+    "namePlaceholder": "Enter your full name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@example.com",
+    "roleLabel": "Role you're applying for",
+    "rolePlaceholder": "Select a role",
+    "coverLetterLabel": "Cover Letter (optional)",
+    "coverLetterPlaceholder": "Write a short introduction about yourself",
+    "submit": "Submit Application",
+    "sending": "Sending...",
+    "success": "Application submitted successfully",
+    "nameError": "Name is required",
+    "emailError": "Invalid email",
+    "roleError": "Please select a role",
+    "frontend": "Frontend Developer",
+    "backend": "Backend Developer",
+    "fullstack": "Full Stack Developer",
+    "uiux": "UI/UX Designer",
+    "mobile": "Mobile Developer",
+    "other": "Other"
+  }
+}

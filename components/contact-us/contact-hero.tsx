@@ -1,6 +1,5 @@
 'use client'
 
-import { useLanguage } from '@/contexts/language-context'
 import {
   Div,
   H2,
@@ -9,28 +8,32 @@ import {
   itemVariants,
   textVariants,
 } from '@/constants/animation'
-import InViewSection from '@/components/ui/Custom-ui/in-view-section'
+import InViewSection from '@/components/ui/Custom-ui/framer-motion/in-view-section'
 
-export default function ContactHero() {
-  const { t } = useLanguage()
+interface ContactHeroProps {
+  dictionary: Dictionary['contactUs']
+}
+
+export default function ContactHero({ dictionary }: ContactHeroProps) {
+  if (!dictionary) return null
 
   return (
     <InViewSection
       className='pt-32 pb-20 px-4 text-center'
       variants={defaultContainerVariants}
     >
-      <Div className='max-w-4xl mx-auto' variants={itemVariants}>
+      <Div className='max-w-4xl mx-auto text-center' variants={itemVariants}>
         <H2
           className='text-5xl md:text-7xl font-bold text-accent mb-6 leading-tight'
           variants={textVariants}
         >
-          {t('contactPage.title')}
+          {dictionary.title}
         </H2>
         <P
           className='text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto'
           variants={textVariants}
         >
-          {t('contactPage.subtitle')}
+          {dictionary.subtitle}
         </P>
       </Div>
     </InViewSection>

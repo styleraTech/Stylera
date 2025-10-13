@@ -138,7 +138,11 @@
     font-family: var(--font-arabic), sans-serif;
   }
 }
-
+@layer utilities {
+  .will-change-transform {
+    will-change: transform, opacity;
+  }
+}
 .font-english {
   font-family: var(--font-english), sans-serif;
 }

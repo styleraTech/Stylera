@@ -10,7 +10,6 @@ import {
 } from '@/components/ui/accordion'
 import { HelpCircle, Mail } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa'
-import { useLanguage } from '@/contexts/language-context'
 import {
   Div,
   H2,
@@ -19,12 +18,18 @@ import {
   itemVariants,
   textVariants,
 } from '@/constants/animation'
-import InViewSection from '@/components/ui/Custom-ui/in-view-section'
+import InViewSection from '@/components/ui/Custom-ui/framer-motion/in-view-section'
 import Link from 'next/link'
 
-export default function FaqSection() {
-  const { t } = useLanguage()
-  const faqs = t('contactPage.faq.questions')
+interface FaqSectionProps {
+  dictionary: Dictionary['contactUs']
+}
+
+export default function FaqSection({ dictionary }: FaqSectionProps) {
+  if (!dictionary?.faq) return null
+
+  const faq = dictionary.faq
+  const faqs = faq.questions || []
 
   return (
     <InViewSection className='py-20 px-4' variants={defaultContainerVariants}>
@@ -38,29 +43,29 @@ export default function FaqSection() {
             className='text-4xl md:text-5xl font-bold text-accent mb-6'
             variants={textVariants}
           >
-            {t('contactPage.faq.title')}
+            {faq.title}
           </H2>
           <P
             className='text-xl text-slate-300 leading-relaxed'
             variants={textVariants}
           >
-            {t('contactPage.faq.subtitle')}
+            {faq.subtitle}
           </P>
         </Div>
 
         {/* FAQ Items */}
         <Accordion type='single' collapsible className='space-y-4'>
-          {faqs.map((faq: any, index: number) => (
+          {faqs.map((q, index) => (
             <AccordionItem
               key={index}
               value={`item-${index}`}
               className='bg-slate-800/50 border-slate-700 rounded-lg px-6'
             >
               <AccordionTrigger className='text-white hover:text-blue-400 text-left'>
-                {faq.question}
+                {q.question}
               </AccordionTrigger>
               <AccordionContent className='text-slate-300 leading-relaxed'>
-                {faq.answer}
+                {q.answer}
               </AccordionContent>
             </AccordionItem>
           ))}
@@ -70,11 +75,9 @@ export default function FaqSection() {
         <Div className='text-center mt-12' variants={itemVariants}>
           <Card className='bg-slate-800/50 border-slate-700 p-8'>
             <h3 className='text-2xl font-bold text-white mb-4'>
-              {t('contactPage.faq.cta.title')}
+              {faq.cta.title}
             </h3>
-            <p className='text-slate-300 mb-6'>
-              {t('contactPage.faq.cta.subtitle')}
-            </p>
+            <p className='text-slate-300 mb-6'>{faq.cta.subtitle}</p>
 
             <div className='flex flex-col sm:flex-row justify-center gap-4'>
               <Button
@@ -82,13 +85,13 @@ export default function FaqSection() {
                 className='bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-6 flex items-center justify-center'
               >
                 <Link
-                  className='text-sm md:text-base'
+                  className='text-sm md:text-base flex items-center'
                   href='https://wa.me/218928666458'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
                   <FaWhatsapp className='w-5 h-5 me-2' />
-                  {t('contactPage.faq.cta.whatsappButton')}
+                  {faq.cta.whatsappButton}
                 </Link>
               </Button>
 
@@ -98,10 +101,10 @@ export default function FaqSection() {
               >
                 <Link
                   href='mailto:contact@ebtkar.tech'
-                  className='text-sm md:text-base'
+                  className='text-sm md:text-base flex items-center'
                 >
                   <Mail className='w-5 h-5 me-2' />
-                  {t('contactPage.faq.cta.emailButton')}
+                  {faq.cta.emailButton}
                 </Link>
               </Button>
             </div>

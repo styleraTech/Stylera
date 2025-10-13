@@ -1,8 +1,7 @@
 'use client'
 
-import { useLanguage } from '@/contexts/language-context'
 import { Button } from '@/components/ui/button'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ArrowLeft } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa'
 import Link from 'next/link'
 import {
@@ -12,10 +11,15 @@ import {
   defaultContainerVariants,
   textVariants,
 } from '@/constants/animation'
-import InViewSection from '@/components/ui/Custom-ui/in-view-section'
+import InViewSection from '@/components/ui/Custom-ui/framer-motion/in-view-section'
 
-export default function CTASection() {
-  const { t, isRTL } = useLanguage()
+interface CTASectionProps {
+  dictionary: Dictionary['OurServicesPage']
+  isRTL?: boolean
+}
+
+export default function CTASection({ dictionary, isRTL }: CTASectionProps) {
+  if (!dictionary) return null
 
   return (
     <InViewSection className='py-20 px-4' variants={defaultContainerVariants}>
@@ -25,24 +29,25 @@ export default function CTASection() {
             className='text-4xl md:text-5xl font-bold text-white mb-6 leading-tight'
             variants={textVariants}
           >
-            {t('OurServices.ctaTitle')}
+            {dictionary.ctaTitle}
           </H2>
+
           <P
             className='text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto'
             variants={textVariants}
           >
-            {t('OurServices.ctaSubtitle')}
+            {dictionary.ctaSubtitle}
           </P>
 
           <Div className='flex flex-col sm:flex-row gap-4 justify-center'>
             <Link href='/contact'>
               <Button className='bg-gradient-to-r cursor-pointer from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg group'>
-                {t('cta.startProject')}
-                <ArrowRight
-                  className={`w-5 h-5 ${
-                    isRTL ? 'mr-2 rotate-180' : 'ml-2'
-                  } group-hover:translate-x-1 transition-transform`}
-                />
+                {dictionary.startProject || 'Start Your Project'}
+                {isRTL ? (
+                  <ArrowLeft className='w-5 h-5 mr-1 group-hover:-translate-x-1 transition-transform' />
+                ) : (
+                  <ArrowRight className='w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform' />
+                )}
               </Button>
             </Link>
 
@@ -51,8 +56,8 @@ export default function CTASection() {
                 variant='outline'
                 className='border-slate-600 text-white hover:bg-slate-800 px-8 py-4 text-lg group bg-transparent cursor-pointer'
               >
-                {t('cta.freeConsultation')}
-                <FaWhatsapp className='w-5 h-5 text-green-500 me-1' />
+                {dictionary.freeConsultation || 'Free Consultation'}
+                <FaWhatsapp className='w-5 h-5 text-green-500 ms-2' />
               </Button>
             </Link>
           </Div>

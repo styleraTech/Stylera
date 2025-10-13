@@ -1,6 +1,5 @@
 'use client'
 
-import { useLanguage } from '@/contexts/language-context'
 import { Card } from '@/components/ui/card'
 import Link from 'next/link'
 import {
@@ -11,9 +10,8 @@ import {
   itemVariants,
   textVariants,
 } from '@/constants/animation'
-import InViewSection from '@/components/ui/Custom-ui/in-view-section'
+import InViewSection from '@/components/ui/Custom-ui/framer-motion/in-view-section'
 import {
-  ArrowLeft,
   ArrowRight,
   CheckCircle,
   Code,
@@ -26,6 +24,10 @@ import {
   BarChart3,
   MessageCircle,
 } from 'lucide-react'
+
+interface DetailedServicesProps {
+  dictionary: Dictionary['OurServicesPage']
+}
 
 const services = [
   { key: 'web', icon: Code, gradient: 'from-blue-500 to-cyan-500' },
@@ -47,65 +49,75 @@ const services = [
   },
 ]
 
-export default function DetailedServices() {
-  const { t, isRTL } = useLanguage()
-
+export default function DetailedServices({
+  dictionary,
+}: DetailedServicesProps) {
+  if (!dictionary) return null
   return (
     <InViewSection className='py-20 px-4' variants={defaultContainerVariants}>
       <Div className='container mx-auto' variants={defaultContainerVariants}>
+        {/* Header */}
         <Div className='text-center mb-16' variants={itemVariants}>
           <H2
             className='text-4xl md:text-5xl font-bold text-accent mb-6'
             variants={textVariants}
           >
-            {t('OurServices.title')}
+            {dictionary.title}
           </H2>
           <P
             className='text-xl text-slate-300 leading-relaxed max-w-4xl mx-auto'
             variants={textVariants}
           >
-            {t('OurServices.subtitle')}
+            {dictionary.subtitle}
           </P>
         </Div>
 
+        {/* Service Cards */}
         <Div className='grid md:grid-cols-2 lg:grid-cols-3 gap-12'>
           {services.map(({ key, icon: Icon, gradient }, i) => {
-            const title = t(`OurServices.${key}.title`)
-            const description = t(`OurServices.${key}.description`)
-            const features = t(`OurServices.${key}.features`) || []
+            const service = dictionary[key as keyof typeof dictionary] as
+              | { title: string; description: string; features?: string[] }
+              | undefined
+
+            if (!service) return null
+
             return (
               <Div key={i} variants={itemVariants}>
                 <Card className='bg-slate-800/50 border-slate-700 p-8 hover:bg-slate-700/50 transition-all duration-300 group h-full flex flex-col'>
+                  {/* Icon */}
                   <div
                     className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
                   >
                     <Icon className='w-8 h-8 text-white' />
                   </div>
+
+                  {/* Text */}
                   <h3 className='text-2xl font-bold text-white mb-4'>
-                    {title}
+                    {service.title}
                   </h3>
                   <p className='text-slate-300 text-lg leading-relaxed mb-6'>
-                    {description}
+                    {service.description}
                   </p>
-                  <ul className='space-y-2 mb-8'>
-                    {features.map((f: string, j: number) => (
-                      <li key={j} className='flex items-center'>
-                        <CheckCircle className='w-4 h-4 text-green-400 me-2' />
-                        <span className='text-slate-300'>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
 
+                  {/* Features */}
+                  {service.features && (
+                    <ul className='space-y-2 mb-8'>
+                      {service.features.map((f, j) => (
+                        <li key={j} className='flex items-center'>
+                          <CheckCircle className='w-4 h-4 text-green-400 me-2' />
+                          <span className='text-slate-300'>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {/* CTA */}
                   <Link
                     href='https://wa.me/218928666458'
-                    className='mt-auto border border-slate-600 rounded-lg text-white px-6 py-2 text-lg flex justify-center items-center gap-2 hover:bg-slate-800 transition-all'
+                    className='mt-auto border border-slate-600 rounded-lg text-white px-6 py-2 text-lg flex justify-center items-center gap-2 hover:bg-slate-800 transition-all group'
                   >
-                    {t('OurServices.requestQuote')}
-                    {isRTL ? (
-                      <ArrowLeft />
-                    ) : (
-                      <ArrowRight className='group-hover:translate-x-1 transition-transform' />
-                    )}
+                    {dictionary.requestQuote}
+                    <ArrowRight className='group-hover:translate-x-1 transition-transform' />
                   </Link>
                 </Card>
               </Div>

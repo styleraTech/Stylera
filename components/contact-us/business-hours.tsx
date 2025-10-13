@@ -2,16 +2,21 @@
 
 import { Card } from '@/components/ui/card'
 import { Clock } from 'lucide-react'
-import { useLanguage } from '@/contexts/language-context'
 import {
   Div,
   defaultContainerVariants,
   itemVariants,
 } from '@/constants/animation'
-import InViewSection from '@/components/ui/Custom-ui/in-view-section'
+import InViewSection from '@/components/ui/Custom-ui/framer-motion/in-view-section'
 
-export default function BusinessHours() {
-  const { t } = useLanguage()
+interface BusinessHoursProps {
+  dictionary: Dictionary['contactUs']
+}
+
+export default function BusinessHours({ dictionary }: BusinessHoursProps) {
+  if (!dictionary) return null
+
+  const t = dictionary.businessHours
 
   return (
     <InViewSection className='py-10 px-4' variants={defaultContainerVariants}>
@@ -22,31 +27,19 @@ export default function BusinessHours() {
               <Clock className='w-8 h-8 text-white' />
             </div>
             <div>
-              <h3 className='text-2xl font-bold text-white mb-2'>
-                {t('contactPage.businessHours.title')}
-              </h3>
-              <p className='text-slate-300'>
-                {t('contactPage.businessHours.subtitle')}
-              </p>
+              <h3 className='text-2xl font-bold text-white mb-2'>{t.title}</h3>
+              <p className='text-slate-300'>{t.subtitle}</p>
             </div>
           </div>
 
           <div className='grid md:grid-cols-2 gap-6'>
             <div>
-              <h4 className='text-white font-semibold mb-2'>
-                {t('contactPage.businessHours.weekdays')}
-              </h4>
-              <p className='text-slate-300'>
-                {t('contactPage.businessHours.weekdaysTime')}
-              </p>
+              <h4 className='text-white font-semibold mb-2'>{t.weekdays}</h4>
+              <p className='text-slate-300'>{t.weekdaysTime}</p>
             </div>
             <div>
-              <h4 className='text-white font-semibold mb-2'>
-                {t('contactPage.businessHours.weekend')}
-              </h4>
-              <p className='text-slate-300'>
-                {t('contactPage.businessHours.weekendTime')}
-              </p>
+              <h4 className='text-white font-semibold mb-2'>{t.weekend}</h4>
+              <p className='text-slate-300'>{t.weekendTime}</p>
             </div>
           </div>
         </Card>

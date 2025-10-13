@@ -1,6 +1,5 @@
 'use client'
 
-import { useLanguage } from '@/contexts/language-context'
 import { Card } from '@/components/ui/card'
 import { Users, Target, Code, Rocket } from 'lucide-react'
 import {
@@ -11,7 +10,11 @@ import {
   itemVariants,
   textVariants,
 } from '@/constants/animation'
-import InViewSection from '@/components/ui/Custom-ui/in-view-section'
+import InViewSection from '@/components/ui/Custom-ui/framer-motion/in-view-section'
+
+interface HowWeWorkProps {
+  dictionary: Dictionary['OurServicesPage']
+}
 
 const stepIcons = [Users, Target, Code, Rocket]
 const stepColors = [
@@ -21,9 +24,9 @@ const stepColors = [
   'text-orange-400',
 ]
 
-export default function HowWeWork() {
-  const { t } = useLanguage()
-  const steps = t('OurServices.steps') || []
+export default function HowWeWork({ dictionary }: HowWeWorkProps) {
+  if (!dictionary) return null
+  const steps = dictionary.steps || []
 
   return (
     <InViewSection
@@ -37,17 +40,17 @@ export default function HowWeWork() {
             className='text-4xl md:text-5xl font-bold text-accent mb-6'
             variants={textVariants}
           >
-            {t('OurServices.howWeWorkTitle')}
+            {dictionary.howWeWorkTitle}
           </H2>
           <P
             className='text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed'
             variants={textVariants}
           >
-            {t('OurServices.howWeWorkSubtitle')}
+            {dictionary.howWeWorkSubtitle}
           </P>
         </Div>
 
-        {/* Grid of Steps */}
+        {/* Steps Grid */}
         <Div
           className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch'
           variants={defaultContainerVariants}
