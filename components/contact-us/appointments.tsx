@@ -2,14 +2,15 @@
 
 import React, { useState } from 'react'
 import { Calendar } from '@/components/ui/calendar'
-import { Card } from '@/components/ui/card'
 import { motion } from 'framer-motion'
 import { CalendarDays, Video, PhoneCall } from 'lucide-react'
+import ConfirmBookingDialog from './_components/confirm-dialog'
 
 const AppointmentsSchedule = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date())
   const [selectedTime, setSelectedTime] = useState<string | null>(null)
   const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null)
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
 
   const times = [
     '09:00',
@@ -40,6 +41,25 @@ const AppointmentsSchedule = () => {
     { name: 'Zoom', icon: <Video className='text-purple-400 w-5 h-5' /> },
   ]
 
+  const handlePlatformClick = (platformName: string) => {
+    setSelectedPlatform(platformName)
+    if (selectedTime) {
+      setIsDialogOpen(true)
+    } else {
+      // Optional: visual feedback if time not selected
+      alert('Please select a time before choosing a platform.')
+    }
+  }
+
+  const handleConfirm = (data: { name: string; contact: string }) => {
+    console.log('Booking confirmed:', {
+      date: selectedDate,
+      time: selectedTime,
+      platform: selectedPlatform,
+      ...data,
+    })
+  }
+
   return (
     <section className='py-20 bg-[#0B1121]'>
       <div className='max-w-6xl mx-auto px-4'>
@@ -56,7 +76,7 @@ const AppointmentsSchedule = () => {
         {/* Layout */}
         <div className='grid grid-cols-1 md:grid-cols-2 rounded-3xl overflow-hidden shadow-xl'>
           {/* Left Side – Calendar */}
-          <div className='p-8 bg-gray-200 backdrop-blur-md '>
+          <div className='p-8 bg-gray-200 backdrop-blur-md'>
             <h3 className='text-xl font-semibold text-black mb-2'>
               Select a Date
             </h3>
@@ -85,8 +105,9 @@ const AppointmentsSchedule = () => {
               </div>
             )}
           </div>
+
           {/* Right Side – Time Slots + Platform */}
-          <div className='p-8 bg-gradient-to-br to-[#9C27B04D]/30 from-[#05A3BE33]/50'>
+          <div className='p-8 bg-gradient-to-br to-[#9C27B04D]/30 from-[#05A3BE33]/70'>
             <h3 className='text-xl font-semibold text-white mb-2'>
               Choose Time & Platform
             </h3>
@@ -111,14 +132,14 @@ const AppointmentsSchedule = () => {
 
             {/* Platform Selection */}
             <h4 className='text-white mb-3 font-semibold'>Select Platform</h4>
-            <div className='flex flex-col gap-3 '>
+            <div className='flex flex-col gap-3'>
               {platforms.map((p) => (
                 <button
                   key={p.name}
-                  onClick={() => setSelectedPlatform(p.name)}
+                  onClick={() => handlePlatformClick(p.name)}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl border transition-all duration-300 ${
                     selectedPlatform === p.name
-                      ? 'bg-cyan-500/10 border-cyan-400 text-white '
+                      ? 'bg-cyan-500/10 border-cyan-400 text-white'
                       : 'bg-white/10 border-white/10 text-white/80 hover:bg-cyan-600/20'
                   }`}
                 >
@@ -127,6 +148,14 @@ const AppointmentsSchedule = () => {
                 </button>
               ))}
             </div>
+
+            {/* Confirm Dialog */}
+            <ConfirmBookingDialog
+              open={isDialogOpen}
+              onOpenChange={setIsDialogOpen}
+              platform={selectedPlatform}
+              onConfirm={handleConfirm}
+            />
           </div>
         </div>
       </div>
