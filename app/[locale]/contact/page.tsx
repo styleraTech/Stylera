@@ -17,7 +17,7 @@ export default async function ContactPage({
 }) {
   const { locale } = await params
   const dictionary = await getDictionary(locale)
-
+  const isRTL = locale === 'ar'
   const contact = dictionary.contactUs!
 
   return (
@@ -35,7 +35,10 @@ export default async function ContactPage({
         <LocationSection dictionary={contact} />
         <FaqSection dictionary={contact} />
         <ContactForm dictionary={contact} />
-        <AppointmentsSchedule dictionary={dictionary.appointments} />
+        <AppointmentsSchedule
+          dictionary={dictionary.appointments}
+          isRTL={isRTL}
+        />
       </div>
     </div>
   )

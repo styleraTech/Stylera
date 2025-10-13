@@ -19,6 +19,7 @@ interface ConfirmBookingDialogProps {
   platform: string | null
   onConfirm: (data: { name: string; contact: string }) => void
   dictionary: Dictionary['appointments']
+  isRTL?: boolean
 }
 
 const ConfirmBookingDialog: React.FC<ConfirmBookingDialogProps> = ({
@@ -27,6 +28,7 @@ const ConfirmBookingDialog: React.FC<ConfirmBookingDialogProps> = ({
   platform,
   onConfirm,
   dictionary,
+  isRTL,
 }) => {
   if (!dictionary) return null
   const [name, setName] = useState('')
@@ -41,20 +43,31 @@ const ConfirmBookingDialog: React.FC<ConfirmBookingDialogProps> = ({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className='sm:max-w-md bg-white text-slate-900'>
+      <DialogContent className='sm:max-w-md font-[cairo] bg-white text-slate-900'>
         <DialogHeader>
           <DialogTitle className='text-lg font-semibold text-center text-[#1E1E2D]'>
             {dictionary.dialogTitle}
           </DialogTitle>
           <DialogDescription className='text-slate-500 text-center'>
-            {dictionary.dialogDescription.replace('{platform}', platform || '')}
+            <span dir='auto'>
+              {dictionary.dialogDescription.includes('{platform}')
+                ? dictionary.dialogDescription.replace(
+                    '{platform}',
+                    platform || ''
+                  )
+                : `${dictionary.dialogDescription.trim()} ${platform || ''}`}
+            </span>
           </DialogDescription>
         </DialogHeader>
 
         <div className='space-y-4 mt-4'>
           {/* Name Input */}
-          <div>
-            <Label htmlFor='name' className='text-[#1E1D56] mb-1'>
+
+          <div
+            dir={isRTL ? 'rtl' : 'ltr'}
+            className={isRTL ? 'text-right' : 'text-left'}
+          >
+            <Label htmlFor='name' className='text-[#1E1D56] mb-1 block'>
               {dictionary.fullNameLabel}
             </Label>
             <Input
@@ -62,12 +75,16 @@ const ConfirmBookingDialog: React.FC<ConfirmBookingDialogProps> = ({
               placeholder={dictionary.fullNamePlaceholder}
               value={name}
               onChange={(e) => setName(e.target.value)}
+              className={isRTL ? 'text-right' : 'text-left'}
             />
           </div>
 
           {/* Contact Input */}
-          <div>
-            <Label htmlFor='contact' className='text-[#1E1D56] mb-1'>
+          <div
+            dir={isRTL ? 'rtl' : 'ltr'}
+            className={isRTL ? 'text-right' : 'text-left'}
+          >
+            <Label htmlFor='contact' className='text-[#1E1D56] mb-1 block'>
               {isWhatsApp ? dictionary.whatsappLabel : dictionary.emailLabel}
             </Label>
             <Input
@@ -80,6 +97,7 @@ const ConfirmBookingDialog: React.FC<ConfirmBookingDialogProps> = ({
               }
               value={contact}
               onChange={(e) => setContact(e.target.value)}
+              className={isRTL ? 'text-right' : 'text-left'}
             />
           </div>
 

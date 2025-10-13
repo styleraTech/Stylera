@@ -9,12 +9,15 @@ import { toast } from 'sonner'
 
 interface AppointmentsScheduleProps {
   dictionary: Dictionary['appointments']
+  isRTL?: boolean
 }
 
 const AppointmentsSchedule: React.FC<AppointmentsScheduleProps> = ({
   dictionary,
+  isRTL,
 }) => {
   if (!dictionary) return null
+
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date())
   const [selectedTime, setSelectedTime] = useState<string | null>(null)
   const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null)
@@ -43,7 +46,7 @@ const AppointmentsSchedule: React.FC<AppointmentsScheduleProps> = ({
   const platforms = [
     { name: 'Google Meet', icon: <Video className='text-blue-400 w-5 h-5' /> },
     {
-      name: 'WhatsApp Call',
+      name: 'WhatsApp',
       icon: <PhoneCall className='text-green-400 w-5 h-5' />,
     },
     { name: 'Zoom', icon: <Video className='text-purple-400 w-5 h-5' /> },
@@ -54,7 +57,10 @@ const AppointmentsSchedule: React.FC<AppointmentsScheduleProps> = ({
     if (selectedTime) {
       setIsDialogOpen(true)
     } else {
-      alert(dictionary.alertSelectTime)
+      toast.warning(dictionary.alertSelectTime, {
+        description: dictionary.chooseTimePlatformTitle,
+        duration: 3000,
+      })
     }
   }
 
@@ -171,6 +177,7 @@ const AppointmentsSchedule: React.FC<AppointmentsScheduleProps> = ({
               platform={selectedPlatform}
               onConfirm={handleConfirm}
               dictionary={dictionary}
+              isRTL={isRTL}
             />
           </div>
         </div>
