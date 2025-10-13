@@ -8,11 +8,8 @@ import Link from 'next/link'
 import { FaGithub } from 'react-icons/fa'
 import {
   Div,
-  H2,
-  P,
   defaultContainerVariants,
   itemVariants,
-  textVariants,
 } from '@/constants/animation'
 import InViewSection from '../ui/Custom-ui/framer-motion/in-view-section'
 

@@ -261,6 +261,8 @@ interface Dictionary {
     title: string
     brand: string
     description: string
+    featuredTitle: string
+    featuredSubtitle: string
     cta: {
       consultation: string
       viewProjects: string

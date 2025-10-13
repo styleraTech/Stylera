@@ -6,6 +6,7 @@ import HowWeWork from '@/components/services/how-we-work'
 import CTASection from '@/components/services/services-cta-section'
 import { getDictionary } from '@/get-dictionary'
 import { Locale } from '@/i18n-config'
+import AllProjects from '@/components/projects/projects'
 
 export default async function ProjectsPage({
   params,
@@ -25,7 +26,9 @@ export default async function ProjectsPage({
         </div>
       </ShaderBackground>
 
-      <div className='bg-background'></div>
+      <div className='bg-background'>
+        <AllProjects dictionary={dictionary.allProjects} />
+      </div>
     </div>
   )
 }
