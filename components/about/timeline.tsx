@@ -69,15 +69,12 @@ export default function Timeline({ dictionary }: TimelineProps) {
             const slideVariants = {
               hidden: {
                 opacity: 0,
-                x: isLeft ? -100 : 100,
+                scale: 0.9,
               },
               visible: {
                 opacity: 1,
-                x: 0,
-                transition: {
-                  duration: 0.6,
-                  ease: 'easeOut' as const,
-                },
+                scale: 1,
+                transition: { duration: 0.6, ease: 'easeOut' as const },
               },
             }
 
@@ -95,12 +92,12 @@ export default function Timeline({ dictionary }: TimelineProps) {
                 {/* Timeline Card */}
                 <div
                   className={`w-[calc(50%-3rem)] ${
-                    isLeft ? 'pr-4' : 'pl-4'
+                    isLeft ? 'md:pr-4' : 'md:pl-4'
                   } transition-all duration-300`}
                 >
                   <Card
                     className={`
-                      relative h-auto p-6 sm:p-8 rounded-2xl overflow-visible
+                      relative h-auto p-1 sm:p-8 rounded-2xl overflow-visible
                       bg-transparent border-none shadow-none
                       md:bg-gradient-to-br md:from-[#1A1F35]/90 md:to-[#0E162B]/80 md:border md:border-fuchsia-500/30 md:backdrop-blur-md md:shadow-[0_0_25px_rgba(168,85,247,0.15)]
                     `}
@@ -112,7 +109,7 @@ export default function Timeline({ dictionary }: TimelineProps) {
                       <h3 className='text-lg sm:text-xl md:text-2xl font-semibold text-white mb-2 md:mb-3'>
                         {text.split('—')[0]}
                       </h3>
-                      <p className='text-slate-300 text-sm sm:text-base leading-relaxed'>
+                      <p className='text-slate-300 text-sm md:text-base leading-relaxed'>
                         {text.split('—')[1]}
                       </p>
                     </div>
