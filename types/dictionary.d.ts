@@ -132,7 +132,11 @@ interface Dictionary {
     uiux: string
     mobile: string
     other: string
+    dialogButton: string
+    dialogDescription: string
+    dialogConfirm: string
   }
+
   cta?: {
     title: string
     subtitle: string
@@ -316,5 +320,23 @@ interface Dictionary {
     infoText: string
     cancel: string
     confirm: string
+  }
+  privacy?: {
+    title: string
+    intro: string
+    sections: {
+      heading: string
+      paragraph?: string
+      list?: string[]
+    }[]
+  }
+  terms?: {
+    title: string
+    intro: string
+    sections: {
+      heading: string
+      paragraph?: string
+      list?: string[]
+    }[]
   }
 }

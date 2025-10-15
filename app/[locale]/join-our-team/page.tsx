@@ -1,10 +1,10 @@
 import Navigation from '@/components/layout/navigation'
-import JoinOurTeamPage from '@/components/join-our-team/join-our-team'
 import { getDictionary } from '@/get-dictionary'
 import { Locale } from '@/i18n-config'
+import JoinOurTeam from '@/components/join-our-team/join-our-team'
 // import ShaderBackground from '@/components/shader-background'
 
-export default async function JoinTeamRoute({
+export default async function JoinOurTeamPage({
   params,
 }: {
   params: Promise<{ locale: Locale }>
@@ -16,7 +16,7 @@ export default async function JoinTeamRoute({
   return (
     <div className='relative'>
       <Navigation dictionary={dictionary.nav} />
-      <JoinOurTeamPage
+      <JoinOurTeam
         dictionary={{
           teamSection: dictionary.teamSection,
           ApplyForm: dictionary.ApplyForm,

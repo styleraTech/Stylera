@@ -519,7 +519,10 @@
     "fullstack": "Full Stack Developer",
     "uiux": "UI/UX Designer",
     "mobile": "Mobile Developer",
-    "other": "Other"
+    "other": "Other",
+    "dialogButton": "Not sure if you should apply? 🤔",
+    "dialogDescription": "Eren Yeager saved 20% of humanity with his Rumbling... think that was the right decision? Then we’re waiting for you ❤️",
+    "dialogConfirm": "Alright, I’m in!"
   },
   "allProjects": {
     "title": "EMPOWER YOUR BUSINESS WITH INNOVATIVE TECH SOLUTIONS FROM",
@@ -579,5 +582,129 @@
     "infoText": "Your appointment details will be sent to your calendar automatically.",
     "cancel": "Cancel",
     "confirm": "Confirm Booking"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "At StyleraTech, we respect your privacy and are committed to protecting your data. This policy explains how we collect, use, store, and share information when you interact with our website or services.",
+    "sections": [
+      {
+        "heading": "Information We Collect",
+        "paragraph": "We collect two types of data: information you voluntarily provide (e.g., name, email, contact details via forms) and information collected automatically (e.g., IP address, browser type, pages visited, and cookies).",
+        "list": [
+          "Contact and appointment forms",
+          "Analytics data to improve experiences",
+          "Language and interface preferences"
+        ]
+      },
+      {
+        "heading": "How We Use Your Information",
+        "list": [
+          "Deliver our services, respond to inquiries, and follow up on requests.",
+          "Improve performance and user experience through analytics.",
+          "Send important updates related to services or policies."
+        ]
+      },
+      {
+        "heading": "Legal Basis for Processing",
+        "paragraph": "We process your data based on your consent, contract performance where applicable, our legitimate interests in improving our services, and compliance with legal obligations."
+      },
+      {
+        "heading": "Cookies",
+        "paragraph": "We use cookies to enhance performance and personalize content. You can manage preferences through your browser settings. Disabling cookies may limit certain functionality."
+      },
+      {
+        "heading": "Data Sharing",
+        "paragraph": "We do not sell your data. We may share it with trusted service providers to support website functionality (such as hosting and analytics) under data protection agreements."
+      },
+      {
+        "heading": "Data Security and Retention",
+        "paragraph": "We apply technical and organizational measures to protect your data. We retain information only as long as needed for the stated purposes or as required by law."
+      },
+      {
+        "heading": "Your Rights",
+        "list": [
+          "Access and correction",
+          "Object to or restrict processing",
+          "Data portability",
+          "Withdraw consent",
+          "Erasure where applicable"
+        ],
+        "paragraph": "To exercise your rights, contact us using the email provided in the website footer."
+      },
+      {
+        "heading": "Third-Party Links",
+        "paragraph": "Our site may contain links to external websites beyond our control. We recommend reviewing their privacy policies."
+      },
+      {
+        "heading": "Updates to This Policy",
+        "paragraph": "We may update this policy from time to time. The last updated date will be indicated. Your continued use signifies acceptance of any changes."
+      },
+      {
+        "heading": "Contact Us",
+        "paragraph": "For any questions about this policy, reach us at: contact@styleratech.com"
+      }
+    ]
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "intro": "These Terms govern your use of the StyleraTech website and services. By using our site, you agree to be bound by these Terms.",
+    "sections": [
+      {
+        "heading": "Eligibility and Acceptable Use",
+        "list": [
+          "You represent that you have the legal capacity to use the site and accept these Terms.",
+          "You must not misuse the site, attempt unauthorized access, or disrupt services.",
+          "You agree to comply with all applicable local and international laws."
+        ]
+      },
+      {
+        "heading": "Offerings and Services",
+        "paragraph": "We provide custom software development, design, and digital experiences. Service details or pricing may change, and the site will be updated accordingly."
+      },
+      {
+        "heading": "Intellectual Property",
+        "paragraph": "All trademarks, logos, content, and visual materials on the site are owned by or licensed to StyleraTech. Reuse is not permitted without written permission."
+      },
+      {
+        "heading": "User-Provided Content",
+        "paragraph": "When you submit messages or forms, you grant us a license to use them for service delivery and communication. You warrant that the content is lawful and non-infringing."
+      },
+      {
+        "heading": "Confidentiality and Privacy",
+        "paragraph": "We respect your privacy and process your data according to our Privacy Policy. Your use of the site constitutes acceptance of that policy."
+      },
+      {
+        "heading": "Your Responsibilities",
+        "list": [
+          "Provide accurate, up-to-date information",
+          "Safeguard the confidentiality of your data",
+          "Refrain from harmful or abusive activities"
+        ]
+      },
+      {
+        "heading": "Limitation of Liability",
+        "paragraph": "The site is provided 'as is' without warranties of any kind. We are not liable for any indirect, consequential, or incidental damages arising from your use of the site."
+      },
+      {
+        "heading": "Indemnification",
+        "paragraph": "You agree to indemnify and hold StyleraTech harmless from any claims arising out of your use of the site or breach of these Terms."
+      },
+      {
+        "heading": "Termination and Suspension",
+        "paragraph": "We may suspend or terminate your access to the site upon violation of these Terms or for any reasonable cause at our discretion."
+      },
+      {
+        "heading": "Governing Law",
+        "paragraph": "These Terms are governed by the laws applicable in our operating jurisdiction unless otherwise specified in a signed agreement."
+      },
+      {
+        "heading": "Changes to These Terms",
+        "paragraph": "We may update these Terms from time to time. Your continued use of the site after updates constitutes acceptance of the revised Terms."
+      },
+      {
+        "heading": "Contact",
+        "paragraph": "For questions regarding these Terms, contact us at: contact@styleratech.com"
+      }
+    ]
   }
 }

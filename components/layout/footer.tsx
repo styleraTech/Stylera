@@ -3,6 +3,7 @@
 import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useParams } from 'next/navigation'
 
 interface FooterProps {
   dictionary?: Dictionary['footer']
@@ -12,6 +13,8 @@ export default function Footer({ dictionary }: FooterProps) {
   if (!dictionary) return null
 
   const currentYear = new Date().getFullYear()
+  const params = useParams() as { locale?: string }
+  const locale = params?.locale ?? ''
 
   return (
     <footer className='bg-card/20 border-t border-border'>
@@ -149,13 +152,13 @@ export default function Footer({ dictionary }: FooterProps) {
 
           <div className='flex gap-6'>
             <Link
-              href='#'
+              href={`/${locale}/privacy`}
               className='text-white/60 hover:text-white text-sm transition-colors duration-300'
             >
               {dictionary.privacy}
             </Link>
             <Link
-              href='#'
+              href={`/${locale}/terms`}
               className='text-white/60 hover:text-white text-sm transition-colors duration-300'
             >
               {dictionary.terms}
