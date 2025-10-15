@@ -179,6 +179,28 @@
           }
         },
         {
+          "role": "developer",
+          "name": "Abdulrahman Super",
+          "position": "Software Developer",
+          "bio": "Software developer with experience in various technologies.",
+          "image": "/images/Abdo.webp",
+          "social": {
+            "linkedin": "#",
+            "github": "#"
+          }
+        },
+        {
+          "role": "developer",
+          "name": "Saje Mohammed",
+          "position": "Software Developer",
+          "bio": "Front-end developer | React | Next.js",
+          "image": "/images/Saje New.webp",
+          "social": {
+            "linkedin": "https://www.linkedin.com/in/saje-mohammed-20783b299/",
+            "github": "https://github.com/Saje0"
+          }
+        },
+        {
           "role": "designer",
           "name": "Reem Esam",
           "position": "UI/UX Designer",
@@ -198,28 +220,6 @@
           "social": {
             "linkedin": "#",
             "behance": "#"
-          }
-        },
-        {
-          "role": "developer",
-          "name": "Abdulrahman Super",
-          "position": "Software Developer",
-          "bio": "Software developer with experience in various technologies.",
-          "image": "/images/Abdo.webp",
-          "social": {
-            "linkedin": "#",
-            "github": "#"
-          }
-        },
-        {
-          "role": "developer",
-          "name": "Saje Mohammed",
-          "position": "Front-End Developer",
-          "bio": "Front-end developer",
-          "image": "/images/Saje New.webp",
-          "social": {
-            "linkedin": "https://www.linkedin.com/in/saje-mohammed-20783b299/",
-            "github": "https://github.com/Saje0"
           }
         }
       ]

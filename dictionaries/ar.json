@@ -181,6 +181,28 @@
           }
         },
         {
+          "role": "developer",
+          "name": "عبدالرحمن",
+          "position": "مطور برمجيات",
+          "bio": "مطور برمجيات بخبرة في تقنيات متنوعة وتطبيقات الويب الحديثة.",
+          "image": "/images/Abdo.webp",
+          "social": {
+            "linkedin": "#",
+            "github": "#"
+          }
+        },
+        {
+          "role": "developer",
+          "name": "ساجي محمد",
+          "position": "مطور برمجيات",
+          "bio": "مطور واجهات أمامية | React | Next.js",
+          "image": "/images/Saje New.webp",
+          "social": {
+            "linkedin": "https://www.linkedin.com/in/saje-mohammed-20783b299/",
+            "github": "https://github.com/Saje0"
+          }
+        },
+        {
           "role": "designer",
           "name": "ريـم عصام",
           "position": "مصممة واجهات المستخدم وتجربة المستخدم",
@@ -200,28 +222,6 @@
           "social": {
             "linkedin": "#",
             "behance": "#"
-          }
-        },
-        {
-          "role": "developer",
-          "name": "عبدالرحمن",
-          "position": "مطور برمجيات",
-          "bio": "مطور برمجيات بخبرة في تقنيات متنوعة وتطبيقات الويب الحديثة.",
-          "image": "/images/Abdo.webp",
-          "social": {
-            "linkedin": "#",
-            "github": "#"
-          }
-        },
-        {
-          "role": "developer",
-          "name": "ساجي محمد",
-          "position": "مطور واجهات أمامية",
-          "bio": "متخصص في تطوير الواجهات الأمامية.",
-          "image": "/images/Saje New.webp",
-          "social": {
-            "linkedin": "https://www.linkedin.com/in/saje-mohammed-20783b299/",
-            "github": "https://github.com/Saje0"
           }
         }
       ]
