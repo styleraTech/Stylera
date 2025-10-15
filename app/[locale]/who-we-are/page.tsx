@@ -8,6 +8,21 @@ import CoreValues from '@/components/about/core-values'
 import Timeline from '@/components/about/timeline'
 import { getDictionary } from '@/get-dictionary'
 import { Locale } from '@/i18n-config'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'About Us | StyleraTech',
+  description:
+    'Learn more about StyleraTech — our story, mission, and the passionate team driving innovation in web, app, and digital experience design.',
+  openGraph: {
+    title: 'About Us | StyleraTech',
+    description:
+      'Learn more about StyleraTech — our story, mission, and the passionate team driving innovation in web, app, and digital experience design.',
+    url: 'https://styleratech.com/en/who-we-are',
+    siteName: 'StyleraTech',
+    type: 'website',
+  },
+}
 
 export default async function AboutPage({
   params,

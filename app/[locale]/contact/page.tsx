@@ -9,6 +9,22 @@ import ContactForm from '@/components/contact-us/contact-form'
 import AppointmentsSchedule from '@/components/contact-us/appointments'
 import { getDictionary } from '@/get-dictionary'
 import { Locale } from '@/i18n-config'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contact Us | StyleraTech',
+  description:
+    'Get in touch with StyleraTech. Whether you have a project in mind, need support, or just want to say hi — we’re here to help you build something amazing.',
+  openGraph: {
+    title: 'Contact Us | StyleraTech',
+    description:
+      'Get in touch with StyleraTech. Whether you have a project in mind, need support, or just want to say hi — we’re here to help you build something amazing.',
+    url: 'https://styleratech.com/en/contact',
+    siteName: 'StyleraTech',
+
+    type: 'website',
+  },
+}
 
 export default async function ContactPage({
   params,

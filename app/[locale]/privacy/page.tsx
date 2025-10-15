@@ -2,6 +2,21 @@ import Navigation from '@/components/layout/navigation'
 import ShaderBackground from '@/components/ui/Custom-ui/shader-background/shader-background'
 import { getDictionary } from '@/get-dictionary'
 import { Locale } from '@/i18n-config'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | StyleraTech',
+  description:
+    'Learn how StyleraTech collects, uses, and protects your data. We value your privacy and ensure transparency in all our data practices.',
+  openGraph: {
+    title: 'Privacy Policy | StyleraTech',
+    description:
+      'Learn how StyleraTech collects, uses, and protects your data. We value your privacy and ensure transparency in all our data practices.',
+    url: 'https://styleratech.com/en/privacy-policy',
+    siteName: 'StyleraTech',
+    type: 'website',
+  },
+}
 
 export default async function PrivacyPolicyPage({
   params,
@@ -10,7 +25,6 @@ export default async function PrivacyPolicyPage({
 }) {
   const { locale } = await params
   const dictionary = await getDictionary(locale)
-
   const t = dictionary.privacy
 
   return (

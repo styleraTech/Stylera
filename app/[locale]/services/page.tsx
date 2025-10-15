@@ -6,6 +6,21 @@ import HowWeWork from '@/components/services/how-we-work'
 import CTASection from '@/components/services/services-cta-section'
 import { getDictionary } from '@/get-dictionary'
 import { Locale } from '@/i18n-config'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Our Services | StyleraTech',
+  description:
+    'Discover StyleraTech’s range of services including web development, mobile apps, UI/UX design, and AI solutions — all tailored to elevate your digital presence.',
+  openGraph: {
+    title: 'Our Services | StyleraTech',
+    description:
+      'Discover StyleraTech’s range of services including web development, mobile apps, UI/UX design, and AI solutions — all tailored to elevate your digital presence.',
+    url: 'https://styleratech.com/en/services',
+    siteName: 'StyleraTech',
+    type: 'website',
+  },
+}
 
 export default async function ServicesPage({
   params,

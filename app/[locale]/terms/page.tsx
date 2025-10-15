@@ -2,6 +2,21 @@ import Navigation from '@/components/layout/navigation'
 import ShaderBackground from '@/components/ui/Custom-ui/shader-background/shader-background'
 import { getDictionary } from '@/get-dictionary'
 import { Locale } from '@/i18n-config'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Terms of Service | StyleraTech',
+  description:
+    'Review StyleraTech’s Terms of Service to understand the guidelines, responsibilities, and policies for using our digital services and website.',
+  openGraph: {
+    title: 'Terms of Service | StyleraTech',
+    description:
+      'Review StyleraTech’s Terms of Service to understand the guidelines, responsibilities, and policies for using our digital services and website.',
+    url: 'https://styleratech.com/en/terms',
+    siteName: 'StyleraTech',
+    type: 'website',
+  },
+}
 
 export default async function TermsOfServicePage({
   params,
