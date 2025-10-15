@@ -93,22 +93,17 @@ export default function JoinOurTeam({
             </DialogTrigger>
             <DialogContent
               isRTL={isRTL}
-              className={`bg-card/90 border-border max-w-md font-[cairo] ${
-                isRTL ? 'text-right' : 'text-center'
-              }`}
-              dir={isRTL ? 'rtl' : 'ltr'}
+              className={`bg-card/90 border-border max-w-md font-[cairo]`}
             >
               <DialogHeader>
                 <DialogTitle className='sr-only'></DialogTitle>
                 <DialogDescription
-                  className={`text-white/80 text-base leading-relaxed ${
-                    isRTL ? 'text-center' : 'text-center'
-                  }`}
+                  className={`text-white/80 text-base leading-relaxed text-center`}
                 >
                   {dialog.dialogDescription}
                 </DialogDescription>
               </DialogHeader>
-              <div className={`${isRTL ? 'text-center' : 'text-center'}`}>
+              <div className={'text-center'}>
                 <Button
                   onClick={() => setOpen(false)}
                   className='mt-4 bg-accent text-white cursor-pointer hover:bg-accent/90'
