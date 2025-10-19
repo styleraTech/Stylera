@@ -36,7 +36,7 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
     coverLetter: z.string().optional(),
     cv: z
       .any()
-      .refine((file) => file?.length === 1, 'Please upload your CV')
+      .refine((file) => file?.length === 1, t.DropZone.errorRequired)
       .refine(
         (file) =>
           [
@@ -44,7 +44,7 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
             'application/msword',
             'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
           ].includes(file?.[0]?.type),
-        'Only PDF or Word files are allowed'
+        t.DropZone.errorFormat || 'Only PDF or Word files are allowed'
       ),
   })
 
@@ -149,7 +149,7 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
 
       {/* CV Upload */}
       <Div variants={comeFromBottomItem}>
-        <Label className='mb-2 block'>Upload CV (PDF or Word)</Label>
+        <Label className='mb-2 block'>{t.DropZone.label}</Label>
         <Controller
           name='cv'
           control={control}
