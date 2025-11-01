@@ -135,6 +135,13 @@ interface Dictionary {
     dialogButton: string
     dialogDescription: string
     dialogConfirm: string
+    DropZone: {
+      drag: string
+      drop: string
+      label: string
+      errorRequired: string
+      errorFormat: string
+    }
   }
 
   cta?: {

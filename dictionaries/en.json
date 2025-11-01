@@ -522,7 +522,14 @@
     "other": "Other",
     "dialogButton": "Not sure if you should apply? 🤔",
     "dialogDescription": "Eren Yeager saved 20% of humanity with his Rumbling... think that was the right decision? Then we’re waiting for you ❤️",
-    "dialogConfirm": "Alright, I’m in!"
+    "dialogConfirm": "Alright, I’m in!",
+    "DropZone": {
+      "drag": "Drag & drop or click to upload PDF / Word",
+      "drop": "Drop your CV here…",
+      "label": "Upload CV (PDF or Word)",
+      "errorRequired": "Please upload your CV",
+      "errorFormat": "Only PDF or Word files are allowed"
+    }
   },
   "allProjects": {
     "title": "EMPOWER YOUR BUSINESS WITH INNOVATIVE TECH SOLUTIONS FROM",
