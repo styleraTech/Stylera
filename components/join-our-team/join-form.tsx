@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Input } from '@/components/ui/input'
@@ -16,6 +16,7 @@ import {
   SelectItem,
 } from '@/components/ui/select'
 import { Div, P, comeFromBottomItem, textVariants } from '@/constants/animation'
+import CVUpload from '../ui/Custom-ui/DropZone/drop-zone'
 
 interface JoinTeamFormProps {
   dictionary: Dictionary['ApplyForm']
@@ -33,6 +34,18 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
     email: z.string().email(t.emailError || 'Invalid email'),
     role: z.string().min(1, t.roleError || 'Please select a role'),
     coverLetter: z.string().optional(),
+    cv: z
+      .any()
+      .refine((file) => file?.length === 1, t.DropZone.errorRequired)
+      .refine(
+        (file) =>
+          [
+            'application/pdf',
+            'application/msword',
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+          ].includes(file?.[0]?.type),
+        t.DropZone.errorFormat || 'Only PDF or Word files are allowed'
+      ),
   })
 
   type ApplicationForm = z.infer<typeof applicationSchema>
@@ -43,6 +56,7 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
     formState: { errors, isSubmitting, isSubmitSuccessful },
     reset,
     setValue,
+    control,
   } = useForm<ApplicationForm>({
     resolver: zodResolver(applicationSchema),
   })
@@ -50,8 +64,15 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   async function onSubmit(data: ApplicationForm) {
-    await new Promise((r) => setTimeout(r, 600))
-    console.log('Form submitted:', data)
+    const formData = new FormData()
+    Object.entries(data).forEach(([key, value]) => {
+      if (key === 'cv') formData.append('cv', value[0])
+      else formData.append(key, value as string)
+    })
+
+    // Example: send to API route
+    // await fetch('/api/apply', { method: 'POST', body: formData })
+
     setIsSubmitted(true)
     reset()
     setTimeout(() => setIsSubmitted(false), 5000)
@@ -62,14 +83,12 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
       onSubmit={handleSubmit(onSubmit)}
       className='space-y-6'
       dir={isRTL ? 'rtl' : 'ltr'}
+      encType='multipart/form-data'
     >
       {/* Name */}
       <Div variants={comeFromBottomItem}>
         <Label className='mb-2 block'>{t.nameLabel || 'Full Name'}</Label>
-        <Input
-          {...register('name')}
-          placeholder={t.namePlaceholder || 'Enter your full name'}
-        />
+        <Input {...register('name')} placeholder={t.namePlaceholder} />
         {errors.name && (
           <p className='text-sm text-destructive mt-1'>{errors.name.message}</p>
         )}
@@ -77,10 +96,10 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
 
       {/* Email */}
       <Div variants={comeFromBottomItem}>
-        <Label className='mb-2 block'>{t.emailLabel || 'Email'}</Label>
+        <Label className='mb-2 block'>{t.emailLabel}</Label>
         <Input
           {...register('email')}
-          placeholder={t.emailPlaceholder || 'you@example.com'}
+          placeholder={t.emailPlaceholder}
           type='email'
         />
         {errors.email && (
@@ -90,11 +109,9 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
         )}
       </Div>
 
-      {/* Role — now using Shadcn Select */}
+      {/* Role */}
       <Div variants={comeFromBottomItem}>
-        <Label className='mb-2 block'>
-          {t.roleLabel || "Role you're applying for"}
-        </Label>
+        <Label className='mb-2 block'>{t.roleLabel}</Label>
         <Select
           onValueChange={(value) => setValue('role', value)}
           defaultValue=''
@@ -104,13 +121,11 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
             className='w-full bg-transparent border border-border text-foreground'
           >
             <SelectValue
-              placeholder={t.rolePlaceholder || 'Select a role'}
+              placeholder={t.rolePlaceholder}
               className='text-muted-foreground'
             />
           </SelectTrigger>
-          <SelectContent
-            className={`bg-popover text-popover-foreground font-[cairo]`}
-          >
+          <SelectContent className='bg-popover text-popover-foreground font-[cairo]'>
             {roles.map((r) => (
               <SelectItem key={r} value={r}>
                 {r}
@@ -125,15 +140,28 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
 
       {/* Cover Letter */}
       <Div variants={comeFromBottomItem}>
-        <Label className='mb-2 block'>
-          {t.coverLetterLabel || 'Cover Letter (optional)'}
-        </Label>
+        <Label className='mb-2 block'>{t.coverLetterLabel}</Label>
         <Textarea
+          className='placeholder:text-xs md:placeholder:text-sm'
           {...register('coverLetter')}
-          placeholder={
-            t.coverLetterPlaceholder ||
-            'Write a short introduction about yourself'
-          }
+          placeholder={t.coverLetterPlaceholder}
+        />
+      </Div>
+
+      {/* CV Upload */}
+      <Div variants={comeFromBottomItem}>
+        <Label className='mb-2 block'>{t.DropZone.label}</Label>
+        <Controller
+          name='cv'
+          control={control}
+          render={({ field }) => (
+            <CVUpload
+              dictionary={dictionary}
+              onDrop={(files) => field.onChange(files)}
+              file={field.value?.[0]}
+              error={errors.cv?.message as string}
+            />
+          )}
         />
       </Div>
 
@@ -146,16 +174,14 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
           type='submit'
           variant='default'
           disabled={isSubmitting}
-          className='px-8'
+          className='px-8 cursor-pointer'
         >
-          {isSubmitting
-            ? t.sending || 'Sending...'
-            : t.submit || 'Submit Application'}
+          {isSubmitting ? t.sending : t.submit}
         </Button>
 
         {(isSubmitted || isSubmitSuccessful) && (
           <P className='text-green-400 text-sm' variants={textVariants}>
-            {t.success || 'Application submitted successfully'}
+            {t.success}
           </P>
         )}
       </Div>
