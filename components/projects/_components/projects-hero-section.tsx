@@ -23,7 +23,7 @@ export default function ProjectsHeroSection({
 
   return (
     <InViewSection
-      className={`pt-32 pb-20 px-4 ps-20`}
+      className={`md:pt-32 pt-10 pb-20 px-4 md:ps-20`}
       variants={defaultContainerVariants}
     >
       <Div className='max-w-7xl'>
