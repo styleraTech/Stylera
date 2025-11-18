@@ -14,9 +14,14 @@ import InViewSection from '../ui/Custom-ui/framer-motion/in-view-section'
 interface CTASectionProps {
   dictionary?: Dictionary['cta']
   isRTL?: boolean
+  locale?: string
 }
 
-export default function CTASection({ dictionary, isRTL }: CTASectionProps) {
+export default function CTASection({
+  dictionary,
+  isRTL,
+  locale,
+}: CTASectionProps) {
   if (!dictionary) return null
 
   return (
@@ -41,7 +46,7 @@ export default function CTASection({ dictionary, isRTL }: CTASectionProps) {
           <Div className='flex flex-col sm:flex-row gap-4 justify-center'>
             {/* Start Project */}
             <Div variants={itemVariants}>
-              <Link href='/contact'>
+              <Link href={`/${locale}/contact`}>
                 <Button className='bg-gradient-to-r cursor-pointer from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg group transition-transform'>
                   {dictionary.startProject}
                   <ArrowRight

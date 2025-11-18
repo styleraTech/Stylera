@@ -14,9 +14,10 @@ import {
 } from '@/constants/animation'
 interface TeamSectionProps {
   dictionary?: Dictionary['teamSection']
+  locale?: string
 }
 
-export default function TeamSection({ dictionary }: TeamSectionProps) {
+export default function TeamSection({ dictionary, locale }: TeamSectionProps) {
   const team = dictionary?.team
   if (!team) return null
 
@@ -128,7 +129,7 @@ export default function TeamSection({ dictionary }: TeamSectionProps) {
             <p className='text-white/70 font-light mb-8 leading-relaxed'>
               {team.join_description}
             </p>
-            <Link href='/join-our-team' className='inline-block'>
+            <Link href={`/${locale}/join-our-team`} className='inline-block'>
               <button className='px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-base transition-colors duration-300 ease-out hover:bg-primary/90 cursor-pointer will-change-transform'>
                 {team.apply_button}
               </button>

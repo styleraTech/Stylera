@@ -13,9 +13,14 @@ import {
 interface HeroSectionProps {
   dictionary?: Dictionary['homeHero']
   isRTL?: boolean
+  locale?: string
 }
 
-export default function HeroSection({ dictionary, isRTL }: HeroSectionProps) {
+export default function HeroSection({
+  dictionary,
+  isRTL,
+  locale,
+}: HeroSectionProps) {
   if (!dictionary) return null
 
   return (
@@ -52,7 +57,7 @@ export default function HeroSection({ dictionary, isRTL }: HeroSectionProps) {
           <Div className='flex items-center justify-center sm:justify-normal sm:flex-wrap gap-6'>
             <Div variants={itemVariants}>
               <Link
-                href={`/contact`}
+                href={`/${locale}/contact`}
                 className='group py-3 px-4 md:px-8 md:py-4 rounded-full bg-primary text-primary-foreground font-medium text-sm sm:text-base transition-all duration-300 hover:bg-primary/80 flex items-center gap-3'
               >
                 {dictionary.cta.primary}
@@ -66,7 +71,7 @@ export default function HeroSection({ dictionary, isRTL }: HeroSectionProps) {
 
             <Div variants={itemVariants}>
               <Link
-                href={`/services`}
+                href={`/${locale}/services`}
                 className='group py-3 px-4 md:px-8 md:py-4 rounded-full bg-transparent border border-white/30 text-white font-medium text-sm sm:text-base transition-all duration-300 hover:bg-white/10 hover:border-white/50 flex items-center gap-3'
               >
                 {isRTL ? (

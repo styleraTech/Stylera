@@ -28,7 +28,11 @@ export default async function StyleraTechPortfolio(props: {
     <div className='relative'>
       <ShaderBackground>
         <Navigation dictionary={dictionary.nav} />
-        <HeroSection dictionary={dictionary.homeHero} isRTL={locale === 'ar'} />
+        <HeroSection
+          dictionary={dictionary.homeHero}
+          isRTL={isRTL}
+          locale={locale}
+        />
         <div>
           <div className='hidden md:block'>
             <PulsingCircle />
@@ -42,15 +46,15 @@ export default async function StyleraTechPortfolio(props: {
       <div className='bg-background'>
         <ServicesSection
           dictionary={dictionary.services}
-          isRTL={locale === 'ar'}
+          isRTL={isRTL}
           locale={locale}
         />
         <TechnologiesSection dictionary={dictionary.technologies} />
-        <ProjectsSection dictionary={dictionary.projects} />
+        <ProjectsSection dictionary={dictionary.projects} locale={locale} />
         <TestimonialsSection dictionary={dictionary.testimonials} />
         <AboutSection dictionary={dictionary.HomeWhoWeAre} />
-        <TeamSection dictionary={dictionary.teamSection} />
-        <CTASection dictionary={dictionary.cta} />
+        <TeamSection dictionary={dictionary.teamSection} locale={locale} />
+        <CTASection dictionary={dictionary.cta} locale={locale} isRTL={isRTL} />
         <ContactSection dictionary={dictionary.contactUs} />
       </div>
 
