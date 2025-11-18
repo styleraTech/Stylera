@@ -4,26 +4,18 @@ import { ArrowRight, ArrowLeft, Play } from 'lucide-react'
 import Link from 'next/link'
 import {
   Div,
-  H1,
   P,
-  Span,
   defaultContainerVariants,
   itemVariants,
   textVariants,
-  comeFromBottomItem,
 } from '@/constants/animation'
 
 interface HeroSectionProps {
   dictionary?: Dictionary['homeHero']
   isRTL?: boolean
-  locale?: string
 }
 
-export default function HeroSection({
-  dictionary,
-  isRTL,
-  locale,
-}: HeroSectionProps) {
+export default function HeroSection({ dictionary, isRTL }: HeroSectionProps) {
   if (!dictionary) return null
 
   return (

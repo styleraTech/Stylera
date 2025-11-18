@@ -17,19 +17,18 @@ import LiveChatMock from '@/components/ui/Custom-ui/flaoting-buttons/livechat'
 import { getDictionary } from '@/get-dictionary'
 import { Locale } from '@/i18n-config'
 
-export default async function StyleraTechPortfolio({
-  params,
-}: {
+export default async function StyleraTechPortfolio(props: {
   params: Promise<{ locale: Locale }>
 }) {
-  const { locale } = await params
-  const dictionary = await getDictionary(locale)
+  const { locale } = await props.params
 
+  const dictionary = await getDictionary(locale)
+  const isRTL = locale === 'ar'
   return (
     <div className='relative'>
       <ShaderBackground>
         <Navigation dictionary={dictionary.nav} />
-        <HeroSection dictionary={dictionary.homeHero} />
+        <HeroSection dictionary={dictionary.homeHero} isRTL={locale === 'ar'} />
         <div>
           <div className='hidden md:block'>
             <PulsingCircle />
@@ -41,7 +40,11 @@ export default async function StyleraTechPortfolio({
       </ShaderBackground>
 
       <div className='bg-background'>
-        <ServicesSection dictionary={dictionary.services} />
+        <ServicesSection
+          dictionary={dictionary.services}
+          isRTL={locale === 'ar'}
+          locale={locale}
+        />
         <TechnologiesSection dictionary={dictionary.technologies} />
         <ProjectsSection dictionary={dictionary.projects} />
         <TestimonialsSection dictionary={dictionary.testimonials} />

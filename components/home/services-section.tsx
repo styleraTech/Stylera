@@ -158,7 +158,7 @@ export default function ServicesSection({
                 {dictionary.cta.subtitle}
               </P>
               <Link
-                href={`/projects`}
+                href={`/${locale}/projects`}
                 className='group px-8 py-4 w-fit rounded-full bg-primary text-primary-foreground font-medium text-base transition-all duration-300 hover:bg-primary/90 cursor-pointer flex items-center gap-3 hover:gap-4 mx-auto'
               >
                 {dictionary.cta.button}
