@@ -113,7 +113,7 @@ export default function DetailedServices({
 
                   {/* CTA */}
                   <Link
-                    href='https://wa.me/218928666458'
+                    href='https://wa.me/218922588880'
                     className='mt-auto border border-slate-600 rounded-lg text-white px-6 py-2 text-lg flex justify-center items-center gap-2 hover:bg-slate-800 transition-all group'
                   >
                     {dictionary.requestQuote}

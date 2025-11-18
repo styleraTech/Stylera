@@ -64,7 +64,7 @@ export default function LocationSection({ dictionary }: LocationSectionProps) {
 
                 {/* Phone */}
                 <a
-                  href='tel:+218928666458'
+                  href='tel:+218922588880'
                   className='flex items-start hover:bg-slate-700/50 p-3 rounded-lg transition-colors'
                 >
                   <Phone className='w-6 h-6 text-green-400 me-3 mt-1 flex-shrink-0' />
@@ -76,7 +76,7 @@ export default function LocationSection({ dictionary }: LocationSectionProps) {
                       className='text-slate-300 hover:text-green-400 transition-colors'
                       dir='ltr'
                     >
-                      +218 92 8666 458
+                      +218 92 258 88 80
                     </p>
                   </div>
                 </a>

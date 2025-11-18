@@ -56,7 +56,7 @@ export default function CTASection({ dictionary, isRTL }: CTASectionProps) {
             {/* Free Consultation via WhatsApp */}
             <Div variants={itemVariants}>
               <Link
-                href='https://wa.me/218928666458'
+                href='https://wa.me/218922588880'
                 target='_blank'
                 rel='noopener noreferrer'
               >

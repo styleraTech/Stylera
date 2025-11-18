@@ -47,8 +47,8 @@ export default function ContactSection({
     {
       icon: Phone,
       label: dictionary.phone,
-      value: '+218 92 8666 458',
-      href: 'tel:+218928666458',
+      value: '+218922588880',
+      href: 'tel:+218922588880',
     },
     {
       icon: Mail,

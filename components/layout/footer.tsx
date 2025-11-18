@@ -113,13 +113,13 @@ export default function Footer({ dictionary }: FooterProps) {
             <ul className='space-y-3'>
               <li className='flex items-center gap-3 text-white/70'>
                 <Link
-                  href='https://wa.me/218928666458'
+                  href='https://wa.me/218922588880'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='flex items-center gap-3 hover:text-green-400 transition-colors duration-300'
                 >
                   <Phone size={16} />
-                  <span dir='ltr'>+218 92 8666 458</span>
+                  <span dir='ltr'>+218 92 258 88 80</span>
                 </Link>
               </li>
 

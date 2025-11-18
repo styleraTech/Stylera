@@ -86,7 +86,7 @@ export default function FaqSection({ dictionary }: FaqSectionProps) {
               >
                 <Link
                   className='text-sm md:text-base flex items-center'
-                  href='https://wa.me/218928666458'
+                  href='https://wa.me/218922588880'
                   target='_blank'
                   rel='noopener noreferrer'
                 >

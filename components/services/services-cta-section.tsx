@@ -51,7 +51,7 @@ export default function CTASection({ dictionary, isRTL }: CTASectionProps) {
               </Button>
             </Link>
 
-            <Link href='https://wa.me/218928666458'>
+            <Link href='https://wa.me/218922588880'>
               <Button
                 variant='outline'
                 className='border-slate-600 text-white hover:bg-slate-800 px-8 py-4 text-lg group bg-transparent cursor-pointer'

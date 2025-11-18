@@ -21,9 +21,9 @@ export default function ContactInfo({ dictionary }: ContactInfoProps) {
     {
       icon: Phone,
       title: dictionary.phone,
-      value: '+218 92 8666 458',
+      value: '+218 92 258 88 80',
       gradient: 'from-blue-500 to-cyan-500',
-      href: 'tel:+218928666458',
+      href: 'tel:+218922588880',
       type: 'phone',
     },
     {
@@ -45,9 +45,9 @@ export default function ContactInfo({ dictionary }: ContactInfoProps) {
     {
       icon: FaWhatsapp,
       title: dictionary.whatsapp,
-      value: '+218 92 8666 458',
+      value: '+218 92 258 88 80',
       gradient: 'from-green-500 to-emerald-500',
-      href: 'https://wa.me/218928666458',
+      href: 'https://wa.me/218922588880',
       type: 'whatsapp',
     },
   ]

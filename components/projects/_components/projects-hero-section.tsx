@@ -47,7 +47,7 @@ export default function ProjectsHeroSection({
         {/* CTA Buttons */}
         <Div className={`flex flex-wrap gap-4`} variants={textVariants}>
           <Link
-            href='https://wa.me/218928666458'
+            href='https://wa.me/218922588880'
             target='_blank'
             rel='noopener noreferrer'
           >
