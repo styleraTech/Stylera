@@ -15,7 +15,6 @@ import WhatsAppButton from "@/components/ui/Custom-ui/flaoting-buttons/whats-app
 import LiveChatMock from "@/components/ui/Custom-ui/flaoting-buttons/livechat";
 import { getDictionary } from "@/get-dictionary";
 import { Locale } from "@/i18n-config";
-import { H2, P, textVariants } from "@/constants/animation";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 export default async function StyleraTechPortfolio({

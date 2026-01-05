@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { ArrowUpRight, SparkleIcon } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 interface ProjectCardProps {
   title: string;
@@ -14,6 +16,7 @@ interface ProjectCardProps {
   technologies: string[];
   github?: string;
   live?: string;
+  uniqueKey: string;
 }
 
 export default function ProjectCard({
@@ -24,7 +27,10 @@ export default function ProjectCard({
   technologies,
   github,
   live,
+  uniqueKey,
 }: ProjectCardProps) {
+  const { id, locale } = useParams();
+  const projectLink = `/${locale}/projects/${uniqueKey}`;
   return (
     <Card className="relative bg-[#111a2b] border-slate-700/50 overflow-hidden hover:border-slate-600/50 transition-all duration-300 group rounded-2xl flex flex-col h-full p-0 gap-0">
       {/* Image with Background */}
@@ -52,7 +58,7 @@ export default function ProjectCard({
 
         <div className="flex items-center justify-between mb-4 relative z-10">
           <span className="px-4 py-1.5 bg-[#27272a] border border-slate-700/50 text-slate-300 text-sm font-medium rounded-full flex items-center gap-2">
-            <SparkleIcon size={16}/>
+            <SparkleIcon size={16} />
             {category}
           </span>
           <div className="flex gap-2">
@@ -68,18 +74,20 @@ export default function ProjectCard({
                 </a>
               </Button>
             )}
-            {live && (
-              <Button
-                size="sm"
-                variant="ghost"
-                className="h-10 w-10 p-0 rounded-full bg-[#27272a] border border-slate-700/50 text-slate-400 hover:text-white hover:bg-slate-700/50"
-                asChild
+            <Button
+              size="sm"
+              variant="ghost"
+              className="h-10 w-10 p-0 rounded-full bg-[#27272a] border border-slate-700/50 text-slate-400 hover:text-white hover:bg-slate-700/50"
+              asChild
+            >
+              <Link
+                href={projectLink}
+                // target="_blank"
+                // rel="noopener noreferrer"
               >
-                <a href={live} target="_blank" rel="noopener noreferrer">
-                  <ArrowUpRight className="h-4 w-4" />
-                </a>
-              </Button>
-            )}
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
 

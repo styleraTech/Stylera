@@ -1,8 +1,21 @@
 export default {
   projects: [
     {
+      id: "our-gym",
+      className:
+        "bg-[linear-gradient(163deg,rgba(201,68,102,1)_1%,rgba(253,29,29,1)_50%,rgba(252,176,69,1)_100%)]",
+      year: 2024,
+      tipInfo: "our-gym",
+      poster: "/images/projects/our-gym.png",
+      color: "#16a34a",
+      screens: [
+        "/images/projects/our-gym/1.jpg",
+        "/images/projects/our-gym/2.jpg",
+        "/images/projects/our-gym/3.jpg",
+      ],
       ar: {
         title: "منصة Our Gym للإدارة والصحة",
+
         description:
           "منصة متكاملة تجمع بين موقع إلكتروني ونظام ERP لإدارة صالة رياضية وعيادة صحية، تغطي جميع الاحتياجات الأساسية لدعم نمط حياة صحي وإدارة العمليات بكفاءة.",
         category: "الصحة واللياقة",
@@ -38,8 +51,19 @@ export default {
         live: "https://www.our-gym.ly/",
       },
     },
-
     {
+      id: "prc",
+      className:
+        "bg-[linear-gradient(90deg,rgba(2,0,36,1)_0%,rgba(9,9,121,1)_35%,rgba(0,212,255,1)_100%)]",
+      year: 2024,
+      tipInfo: "prc",
+      poster: "/images/projects/prc/poster.png",
+      screens: [
+        "/images/projects/prc/prc1.png",
+        "/images/projects/prc/prc2.png",
+        "/images/projects/prc/prc3.png",
+      ],
+      color: "#3B82F6",
       ar: {
         title: "مركز بحوث وتكنولوجيا البوليمرات (PRC)",
         description:
@@ -76,6 +100,18 @@ export default {
       },
     },
     {
+      id: "kasper",
+      className:
+        "bg-[linear-gradient(163deg,rgba(201,68,102,1)_1%,rgba(253,29,29,1)_50%,rgba(252,176,69,1)_100%)]",
+      year: 2025,
+      tipInfo: "kasper",
+      poster: "/images/projects/kasper/poster.png",
+      color: "#16a34a",
+      screens: [
+        "/images/projects/kasper/1.jpg",
+        "/images/projects/kasper/2.jpg",
+        "/images/projects/kasper/3.jpg",
+      ],
       ar: {
         title: "متجر كاسبر للساعات",
         description:
@@ -114,6 +150,18 @@ export default {
       },
     },
     {
+      id: "arzaq",
+      className:
+        "bg-[linear-gradient(90deg,rgba(2,0,36,1)_0%,rgba(9,9,121,1)_35%,rgba(0,212,255,1)_100%)]",
+      year: 2025,
+      tipInfo: "arzaq",
+      poster: "/images/projects/arzaq/poster.png",
+      screens: [
+        "/images/projects/arzaq/1.png",
+        "/images/projects/arzaq/2.png",
+        "/images/projects/arzaq/3.png",
+      ],
+      color: "#3B82F6",
       ar: {
         title: "منصة أرزاق للتسويق الإلكتروني",
         description:
@@ -136,6 +184,7 @@ export default {
       },
     },
     {
+      id: "trims",
       ar: {
         title: "منصة TRIMS لإدارة ورش الصيانة",
         description:
@@ -158,6 +207,7 @@ export default {
       },
     },
     {
+      id: "walid-oglu",
       ar: {
         title: "متجر Walid Oglu للحلويات",
         description:
@@ -194,6 +244,7 @@ export default {
       },
     },
     {
+      id: "albilasan",
       ar: {
         title: "منصة البيلسان للمشاريع الجاهزة",
         description:
@@ -216,6 +267,7 @@ export default {
       },
     },
     {
+      id: "azu",
       ar: {
         title: "جامعة الزيتونة",
         description:
@@ -254,6 +306,7 @@ export default {
       },
     },
     {
+      id: "stylera-erp",
       ar: {
         title: "نظام StyleraERP",
         description:
@@ -292,6 +345,7 @@ export default {
       },
     },
     {
+      id: "mset",
       ar: {
         title: "منصة MSET التعليمية",
         description:

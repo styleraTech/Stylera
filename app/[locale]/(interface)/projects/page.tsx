@@ -6,6 +6,8 @@ import { Locale } from "@/i18n-config";
 import AllProjects from "@/components/projects/projects";
 import ProjectsContactForm from "@/components/projects/_components/contact-form";
 import { Metadata } from "next";
+import { listProjects } from "@/database/projects";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Projects | StyleraTech",
@@ -29,6 +31,9 @@ export default async function ProjectsPage({
   const dictionary = await getDictionary(locale);
   const isRTL = locale === "ar";
 
+  const projects = await listProjects();
+  console.log(projects);
+
   return (
     <div className="relative">
       <ShaderBackground>
@@ -39,11 +44,14 @@ export default async function ProjectsPage({
       </ShaderBackground>
 
       <div className="bg-background">
-        <AllProjects
-          dictionary={dictionary.allProjects}
-          isRTL={isRTL}
-          locale={locale}
-        />
+        <Suspense>
+          <AllProjects
+            dictionary={dictionary.allProjects}
+            data={projects?.data ?? []}
+            isRTL={isRTL}
+            locale={locale}
+          />
+        </Suspense>
         <ProjectsContactForm dictionary={dictionary.allProjects} />
       </div>
     </div>

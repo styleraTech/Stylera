@@ -1,15 +1,17 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap");
+@import "uploadthing/tw/v4";
+@source "../node_modules/@uploadthing/react/dist"; /** <-- depends on your project structure */
 
 @theme {
-  --font-cairo: 'Roboto', sans-serif;
+  --font-cairo: "Roboto", sans-serif;
 }
 @custom-variant dark (&:is(.dark *));
 @custom-variant rtl (&[dir='rtl'] &);
 :root {
   /* Updated color tokens to match professional portfolio design inspiration */
-  --font-cairo: 'Cairo', sans-serif;
+  --font-cairo: "Cairo", sans-serif;
   --background: #0f172a; /* Deep navy blue background */
   --foreground: #f8fafc; /* Light gray for text */
   --card: #1e293b; /* Darker navy for cards */
@@ -43,8 +45,8 @@
   --sidebar-accent-foreground: #f8fafc; /* Light text on sidebar accent */
   --sidebar-border: #334155; /* Subtle sidebar borders */
   --sidebar-ring: #3b82f6; /* Blue for sidebar focus */
-  --font-english: 'FontsFree-Net-nasalization-rg', sans-serif;
-  --font-arabic: 'GE-Dinar-One-Medium', sans-serif;
+  --font-english: "FontsFree-Net-nasalization-rg", sans-serif;
+  --font-arabic: "GE-Dinar-One-Medium", sans-serif;
 }
 
 .dark {
@@ -81,8 +83,8 @@
   --sidebar-accent-foreground: #f8fafc;
   --sidebar-border: #334155;
   --sidebar-ring: #3b82f6;
-  --font-instrument-serif: 'Instrument Serif', serif;
-  --font-figtree: 'Figtree', sans-serif;
+  --font-instrument-serif: "Instrument Serif", serif;
+  --font-figtree: "Figtree", sans-serif;
 }
 
 @theme inline {
@@ -137,7 +139,7 @@
     font-family: var(--font-english), sans-serif;
   }
 
-  [dir='rtl'] body {
+  [dir="rtl"] body {
     font-family: var(--font-arabic), sans-serif;
   }
 }
@@ -161,28 +163,28 @@
   font-family: var(--font-cairo), sans-serif;
 }
 /* Added RTL support styles */
-[dir='rtl'] {
+[dir="rtl"] {
   text-align: right;
 }
 
-[dir='rtl'] .rtl\:text-right {
+[dir="rtl"] .rtl\:text-right {
   text-align: right;
 }
 
-[dir='rtl'] .rtl\:text-left {
+[dir="rtl"] .rtl\:text-left {
   text-align: left;
 }
 
-[dir='rtl'] .rtl\:flex-row-reverse {
+[dir="rtl"] .rtl\:flex-row-reverse {
   flex-direction: row-reverse;
 }
 
-[dir='rtl'] .rtl\:ml-auto {
+[dir="rtl"] .rtl\:ml-auto {
   margin-left: auto;
   margin-right: 0;
 }
 
-[dir='rtl'] .rtl\:mr-auto {
+[dir="rtl"] .rtl\:mr-auto {
   margin-right: auto;
   margin-left: 0;
 }
