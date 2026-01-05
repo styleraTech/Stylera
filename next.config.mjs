@@ -9,9 +9,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  outputFileTracingIncludes: {
-    "/*": ["./node_modules/.prisma/client/**/*", "./generated/prisma/**/*"],
-  },
+  // outputFileTracingIncludes: {
+  // "/*": ["./node_modules/.prisma/client/**/*", "./generated/prisma/**/*"],
+  // },
 };
 
 export default nextConfig;
