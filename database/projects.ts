@@ -5,6 +5,7 @@ import "server-only";
 import prisma from "@/lib/prisma"; // ✅ adjust if your prisma client path differs
 import type { Project, Locale } from "@/generated/prisma/client";
 import type { ProjectTranslation } from "@/generated/prisma/client"; // composite type
+import { revalidateTag, unstable_cache } from "next/cache";
 // If your generated output path differs, keep it consistent with your generator output:
 // generator client { output = "../generated/prisma" }
 
@@ -99,6 +100,13 @@ export async function createProject(input: CreateProjectInput) {
       select: { id: true },
     });
 
+    if (!created) {
+      return {
+        ok: false as const,
+        message: "فشلت العملية، يرجى المحاولة لاحقاً",
+      };
+    }
+    revalidateTag("projects");
     return {
       ok: true as const,
       message: "تم إنشاء المشروع بنجاح",
@@ -142,7 +150,13 @@ export async function updateProject(input: UpdateProjectInput) {
       },
       select: { id: true },
     });
-
+    if (!updated) {
+      return {
+        ok: false as const,
+        message: "فشلت العملية، يرجى المحاولة لاحقاً",
+      };
+    }
+    revalidateTag("projects");
     return {
       ok: true as const,
       message: "تم تحديث المشروع بنجاح",
@@ -188,31 +202,42 @@ export async function getProjectById(id: string) {
 /**
  * ✅ List projects (optional helper)
  */
-export async function listProjects() {
-  try {
-    const projects = await prisma.project.findMany({
-      orderBy: { createdAt: "desc" },
-    });
-    if (!projects) {
-      return { ok: false as const, message: "لا توجد مشاريع", projects: [] };
+export const listProjects = unstable_cache(
+  async () => {
+    try {
+      const projects = await prisma.project.findMany({
+        orderBy: { createdAt: "desc" },
+      });
+      if (!projects) {
+        return { ok: false as const, message: "لا توجد مشاريع", projects: [] };
+      }
+      return { ok: true as const, data: projects };
+    } catch (error) {
+      console.error("listProjects error:", error);
+      return {
+        ok: false as const,
+        message: "فشلت العملية، يرجى المحاولة لاحقاً",
+        projects: [],
+      };
     }
-    return { ok: true as const, data: projects };
-  } catch (error) {
-    console.error("listProjects error:", error);
-    return {
-      ok: false as const,
-      message: "فشلت العملية، يرجى المحاولة لاحقاً",
-      projects: [],
-    };
-  }
-}
+  },
+  ["projects"],
+  { tags: ["projects"] }
+);
 
 /**
  * ✅ Delete project (optional helper)
  */
 export async function deleteProject(id: string) {
   try {
-    await prisma.project.delete({ where: { id } });
+    const deleted = await prisma.project.delete({ where: { id } });
+    if (!deleted) {
+      return {
+        ok: false as const,
+        message: "فشلت العملية، يرجى المحاولة لاحقاً",
+      };
+    }
+    revalidateTag("projects");
     return { ok: true as const, message: "تم حذف المشروع بنجاح" };
   } catch (error) {
     console.error("deleteProject error:", error);
