@@ -1,7 +1,8 @@
+// @ts-ignore: no declaration file for '@prisma/nextjs-monorepo-workaround-plugin'
 import { PrismaPlugin } from "@prisma/nextjs-monorepo-workaround-plugin";
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: import("next").NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -11,16 +12,16 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  outputFileTracingIncludes: {
-    "/api/**/*": ["./node_modules/.prisma/client/**/*"],
-    "/*": ["./node_modules/.prisma/client/**/*"],
-  },
   webpack: (config, { isServer }) => {
     if (isServer) {
       config.plugins = [...config.plugins, new PrismaPlugin()];
     }
 
     return config;
+  },
+  outputFileTracingIncludes: {
+    "/api/**/*": ["./node_modules/.prisma/client/**/*"],
+    "/*": ["./node_modules/.prisma/client/**/*"],
   },
 };
 
