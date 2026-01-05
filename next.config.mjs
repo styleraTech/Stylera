@@ -8,10 +8,10 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
-    outputFileTracingIncludes: {
-      "/api/**/*": ["./node_modules/.prisma/client/**/*"],
-      "/*": ["./node_modules/.prisma/client/**/*"],
-    },
+  },
+  outputFileTracingIncludes: {
+    "/api/**/*": ["./node_modules/.prisma/client/**/*"],
+    "/*": ["./node_modules/.prisma/client/**/*"],
   },
 };
 
