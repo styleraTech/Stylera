@@ -8,10 +8,11 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    outputFileTracingIncludes: {
+      "/api/**/*": ["./node_modules/.prisma/client/**/*"],
+      "/*": ["./node_modules/.prisma/client/**/*"],
+    },
   },
-  // outputFileTracingIncludes: {
-  // "/*": ["./node_modules/.prisma/client/**/*", "./generated/prisma/**/*"],
-  // },
 };
 
 export default nextConfig;
